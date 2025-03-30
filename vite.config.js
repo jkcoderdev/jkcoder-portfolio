@@ -9,7 +9,7 @@ import svgLoader from 'vite-svg-loader'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
     svgLoader({
       svgoConfig: {},
       defaultImport: 'component'
@@ -19,5 +19,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+  },
+  css: {
+      preprocessorOptions: {
+          scss: {
+              additionalData: `@use '/src/scss/variables' as *;`,
+          },
+      },
   },
 })
