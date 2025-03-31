@@ -3,86 +3,65 @@
 
 <template>
   <main>
-    <h2>Color Palette</h2>
-    <div class="colors">
-      <div class="colors-row">
-        <div class="color-box primary">Primary</div>
-        <div class="color-box primary-dark">Primary Dark</div>
-        <div class="color-box primary-light">Primary Light</div>
-      </div>
-      
-      <div class="colors-row">
-        <div class="color-box secondary">Secondary</div>
-        <div class="color-box secondary-dark">Secondary Dark</div>
-        <div class="color-box secondary-light">Secondary Light</div>
+    <h2>Website UI Showcase</h2>
+
+    <section class="buttons">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-danger">Danger</button>
+    </section>
+
+    <section>
+      <h1>Main Heading (H1)</h1>
+      <h2>Subheading (H2)</h2>
+      <p>
+        This is a paragraph using the primary text color. It should be easy to read against the dark background.
+      </p>
+      <p class="muted">
+        This is a muted paragraph for less important text.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Card Title</h3>
+        <p>This is a card component with a surface background.</p>
       </div>
 
-      <div class="colors-row">
-        <div class="color-box success">Success</div>
-        <div class="color-box danger">Danger</div>
-        <div class="color-box warning">Warning</div>
-        <div class="color-box info">Info</div>
+      <div class="card border">
+        <h3>Bordered Card</h3>
+        <p>This card has a border using the border color.</p>
       </div>
-
-      <div class="colors-row">
-        <div class="color-box background">Background</div>
-        <div class="color-box surface">Surface</div>
-        <div class="color-box text">Text</div>
-        <div class="color-box border">Border</div>
-        <div class="color-box muted">Muted</div>
-      </div>
-    </div>
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
 main {
-  background-color: $color-background;
-  color: $color-text;
-  padding: 2rem;
+  padding: 4rem 2rem;
   text-align: center;
-  min-height: 100vh;
 }
 
-.colors {
-  margin-top: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  .colors-row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
+/* General spacing */
+section {
+  margin-top: 3rem;
 }
 
-.color-box {
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-  color: $color-surface;
-  display: grid;
-  place-items: center;
-}
-
-// Apply background colors
-.primary { background-color: $color-primary; }
-.primary-dark { background-color: $color-primary-dark; }
-.primary-light { background-color: $color-primary-light; }
-.secondary { background-color: $color-secondary; }
-.secondary-dark { background-color: $color-secondary-dark; }
-.secondary-light { background-color: $color-secondary-light; }
 .success { background-color: $color-success; }
 .danger { background-color: $color-danger; }
 .warning { background-color: $color-warning; }
 .info { background-color: $color-info; }
-.background { background-color: $color-background; color: $color-text; border: 1px solid $color-border; }
-.surface { background-color: $color-surface; color: $color-text; }
-.text { background-color: $color-text; color: $color-background; }
-.border { background-color: $color-border; }
-.muted { background-color: $color-muted; }
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+
+  .card {
+    width: 280px;
+  }
+}
 </style>
