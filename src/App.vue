@@ -3,7 +3,7 @@ import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div id="app">
+  <div id="container">
     <header>
       <nav>
         <div class="logo">
@@ -24,7 +24,7 @@ import { RouterView, RouterLink } from 'vue-router'
 </template>
 
 <style lang="scss" scoped>
-#app {
+#container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +62,6 @@ header {
       li a {
         text-decoration: none;
         font-weight: 500;
-        letter-spacing: 0.5px;
         color: $color-text;
         transition: 0.2s ease-in-out;
 
