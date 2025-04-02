@@ -2,66 +2,131 @@
 </script>
 
 <template>
-  <main>
-    <h2>Website UI Showcase</h2>
-
-    <section class="buttons">
-      <button class="btn btn-primary">Primary</button>
-      <button class="btn btn-secondary">Secondary</button>
-      <button class="btn btn-danger">Danger</button>
+  <main class="profile">
+    <section class="profile-header">
+      <div class="profile-info">
+        <h1>Jan Kozaruk</h1>
+        <h2>Full-stack developer</h2>
+        <p class="muted">🇵🇱 Poland • Speaks English, Polish</p>
+      </div>
     </section>
 
-    <section>
-      <h1>Main Heading (H1)</h1>
-      <h2>Subheading (H2)</h2>
+    <section class="about">
       <p>
-        This is a paragraph using the primary text color. It should be easy to read against the dark background.
-      </p>
-      <p class="muted">
-        This is a muted paragraph for less important text.
+        I'm a full-stack developer with expertise in building modern and efficient web applications.
+        I focus on writing clean, maintainable code and delivering high-quality solutions.
       </p>
     </section>
 
-    <section class="cards">
-      <div class="card">
-        <h3>Card Title</h3>
-        <p>This is a card component with a surface background.</p>
+    <section class="tech-stack">
+      <h2>Tech Stack</h2>
+      <div class="stack">
+        <div class="stack-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>🔹 HTML, CSS/SCSS</li>
+            <li>🔹 JavaScript/TypeScript</li>
+            <li>🔹 PHP/MySQL</li>
+            <li>🔹 Python</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>🔹 Laravel</li>
+            <li>🔹 Vue 3</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-      <div class="card border">
-        <h3>Bordered Card</h3>
-        <p>This card has a border using the border color.</p>
-      </div>
+    <section class="contact">
+      <p>Let's bring your ideas to life! 🚀</p>
+      <button class="btn btn-primary">Contact Me</button>
     </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
-main {
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 4rem 2rem;
   text-align: center;
 }
 
-/* General spacing */
-section {
-  margin-top: 3rem;
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.success { background-color: $color-success; }
-.danger { background-color: $color-danger; }
-.warning { background-color: $color-warning; }
-.info { background-color: $color-info; }
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid $color-primary;
+}
 
-/* Cards */
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-
-  .card {
-    width: 280px;
+.profile-info {
+  h2 {
+    letter-spacing: 0;
+    font-weight: 400;
+    color: $color-primary-light;
   }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.about, .tech-stack {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.about {
+  p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 480px;
+  }
+}
+
+.tech-stack {
+  h2 {
+    text-align: center;
+  }
+}
+
+.stack {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .stack-group {
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.contact {
+  margin-top: 4rem;
 }
 </style>
