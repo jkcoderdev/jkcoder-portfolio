@@ -12,7 +12,9 @@ import { RouterView, RouterLink } from 'vue-router'
         <ul>
           <li><RouterLink to="/">Home</RouterLink></li>
           <li><RouterLink to="/projects">Projects</RouterLink></li>
-          <li><RouterLink to="/contact">Contact</RouterLink></li>
+          <li>
+            <RouterLink to="/contact"><button class="btn btn-primary">Contact</button></RouterLink>
+          </li>
         </ul>
       </nav>
     </header>
@@ -56,12 +58,16 @@ header {
 
     ul {
       display: flex;
+      align-items: center;
       gap: 1.5rem;
       list-style: none;
 
       li a {
         text-decoration: none;
-        font-weight: 500;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
         color: $color-text;
         transition: 0.2s ease-in-out;
 
