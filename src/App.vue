@@ -15,5 +15,9 @@ import { RouterView, RouterLink } from 'vue-router'
 </template>
 
 <style lang="scss" scoped>
-
+#container {
+  margin: 0 auto;
+  width: 800px;
+  max-width: 100%;
+}
 </style>
