@@ -110,5 +110,11 @@ onBeforeUnmount(() => {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   white-space: nowrap;
+  transition: all 0.2s;
+
+  &:hover {
+    filter: brightness(1.2);
+    text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+  }
 }
 </style>
