@@ -1,23 +1,40 @@
 <script setup>
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from 'vue-router';
+import Baner from './components/baner/Baner.vue';
+import Navbar from './components/navbar/Navbar.vue';
+import NavLink from './components/navbar/NavLink.vue';
 </script>
 
 <template>
-  <div id="container">
-    <header>
-      
-    </header>
+  <header class="header">
+    <div class="header-wrapper">
+      <Baner />
 
-    <main>
-      <RouterView />
-    </main>
-  </div>
+      <Navbar>
+        <NavLink route="home">Home</NavLink>
+        <NavLink route="home">Test</NavLink>
+        <NavLink route="home">Test 2</NavLink>
+      </Navbar>
+    </div>
+  </header>
+
+  <main class="main">
+    <RouterView />
+  </main>
 </template>
 
 <style lang="scss" scoped>
-#container {
-  margin: 0 auto;
-  width: 800px;
-  max-width: 100%;
+.header {
+  padding: 1rem $content-padding;
+
+  .header-wrapper {
+    width: $content-width;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
