@@ -1,9 +1,9 @@
 <script setup>
-import ScrollingBlocks from '@/components/animation/ScrollingBlocks.vue';
+import MainSection from './home/MainSection.vue';
 </script>
 
 <template>
-  <ScrollingBlocks :values="['HTML', 'CSS', 'JavaScript']"></ScrollingBlocks>
+  <MainSection />
 </template>
 
 <style lang="scss" scoped>

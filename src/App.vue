@@ -25,16 +25,20 @@ import NavLink from './components/navbar/NavLink.vue';
 
 <style lang="scss" scoped>
 .header {
-  padding: 1rem $content-padding;
+  width: 100%;
+  height: 4rem;
 
   .header-wrapper {
     width: $content-width;
     max-width: 100%;
+    height: 100%;
 
     margin: 0 auto;
+    padding: 0 $content-padding;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }
 </style>
