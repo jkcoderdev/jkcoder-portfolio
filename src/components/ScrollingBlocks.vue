@@ -41,7 +41,7 @@ const animate = () => {
   content.value.style.transform = `translateX(${position}px)`;
 
   // Smoothly adjust speed
-  currentSpeed += (targetSpeed - currentSpeed) * 0.1;
+  currentSpeed += (targetSpeed - currentSpeed) * 0.05;
 
   animationFrame = requestAnimationFrame(animate);
 };
