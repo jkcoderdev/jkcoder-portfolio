@@ -20,6 +20,11 @@ import ButtonPrimary from '@/components/button/ButtonPrimary.vue';
   margin: 0 auto;
   padding: $content-padding;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
   h1 {
     font-size: 4rem;
     color: $color-primary;
