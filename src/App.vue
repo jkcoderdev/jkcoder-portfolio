@@ -12,8 +12,8 @@ import NavLink from './components/navbar/NavLink.vue';
 
       <Navbar>
         <NavLink route="home">Home</NavLink>
-        <NavLink route="home">Test</NavLink>
-        <NavLink route="home">Test 2</NavLink>
+        <NavLink route="home">Projects</NavLink>
+        <NavLink route="home">About</NavLink>
       </Navbar>
     </div>
   </header>

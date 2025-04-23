@@ -15,11 +15,11 @@ defineProps({
 
 <style lang="scss" scoped>
 .nav-link {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-decoration: none;
     color: $color-text;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    // font-weight: 500;
+    // letter-spacing: 0.5px;
     font-size: 1rem;
     transition: 0.2s;
 

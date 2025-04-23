@@ -1,3 +1,7 @@
+<script setup>
+import ButtonPrimary from '@/components/button/ButtonPrimary.vue';
+</script>
+
 <template>
   <section class="main-section">
     <h1>Jan Kozaruk</h1>
@@ -5,6 +9,7 @@
     <p>
       I'm a software developer with expertise in building modern and efficient web applications. I focus on writing clean, maintainable code and delivering high-quality solutions.
     </p>
+    <ButtonPrimary>Get in touch</ButtonPrimary>
   </section>
 </template>
 
@@ -29,6 +34,7 @@
     max-width: 480px;
     line-height: 1.5rem;
     color: $color-muted;
+    margin-bottom: 1.5rem;
   }
 }
 </style>
