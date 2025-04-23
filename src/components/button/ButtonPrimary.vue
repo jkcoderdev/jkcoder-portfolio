@@ -8,6 +8,7 @@
     padding: 0 1rem;
 
     font-size: 1rem;
+    font-weight: 600;
     color: $color-surface;
     background-color: $color-primary;
     border: 1px solid $color-border;

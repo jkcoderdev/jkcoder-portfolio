@@ -1,3 +1,5 @@
+// *** COLORS ***
+
 // Primary color scheme
 $color-primary: #0ea5e9; // Blue Accent
 $color-primary-dark: #0284c7; // Darker Blue
@@ -25,7 +27,10 @@ $color-muted: #94a3b8; // Muted text color
 $color-hover: rgba(22, 163, 74, 0.2); // Hover effect with transparency
 $color-overlay: rgba(0, 0, 0, 0.6); // Dark overlay for modals
 
-
+// *** SIZE **
 
 $content-width: 1000px;
 $content-padding: 2rem;
+
+$card-width: 480px;
+$card-padding: 1.5rem;
