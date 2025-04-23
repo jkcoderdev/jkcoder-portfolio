@@ -1,8 +1,10 @@
+@use 'sass:color';
+
 // *** COLORS ***
 
 // Primary color scheme
 $color-primary: #0ea5e9; // Blue Accent
-$color-primary-dark: #0284c7; // Darker Blue
+$color-primary-dark: #0369a1; // Darker Blue
 $color-primary-light: #38bdf8; // Lighter Blue
 
 // Secondary color scheme
@@ -11,10 +13,11 @@ $color-secondary-dark: #15803d; // Darker Green
 $color-secondary-light: #4ade80; // Lighter Green
 
 // Neutral colors
-$color-background: #0f172a; // Dark Background
-$color-surface: #1e293b; // Surface (e.g., cards, modals)
+$color-background: #030712; // Darker Background for better contrast
+$color-surface: #111827; // Darker Surface
+$color-card: #080d1a; // Card Surface
 $color-text: #f8fafc; // Light text color
-$color-border: #334155; // Border color
+$color-border: #1c2532; // Darker Border
 
 // Status colors
 $color-success: #22c55e; // Green (Success)
@@ -23,14 +26,16 @@ $color-warning: #facc15; // Yellow (Warning)
 $color-info: #3b82f6; // Blue (Informational)
 
 // Additional shades
-$color-muted: #94a3b8; // Muted text color
+$color-muted: #9ca3af; // Slightly brighter muted text
 $color-hover: rgba(22, 163, 74, 0.2); // Hover effect with transparency
-$color-overlay: rgba(0, 0, 0, 0.6); // Dark overlay for modals
+$color-overlay: rgba(0, 0, 0, 0.75); // Darker overlay for better contrast
 
 // *** SIZE ***
 
 $content-width: 1000px;
 $content-padding: 2rem;
+
+$header-height: 4rem;
 
 $card-width: 560px;
 $card-padding: 1.5rem;

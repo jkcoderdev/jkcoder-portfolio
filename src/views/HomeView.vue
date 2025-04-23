@@ -5,10 +5,11 @@ import SkillsSection from './home/SkillsSection.vue';
 
 <template>
   <MainSection />
-
   <SkillsSection />
 </template>
 
 <style lang="scss" scoped>
-
+:host {
+  overflow-x: hidden;
+}
 </style>

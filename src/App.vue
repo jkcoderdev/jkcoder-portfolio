@@ -26,7 +26,7 @@ import NavLink from './components/navbar/NavLink.vue';
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  height: 4rem;
+  height: $header-height;
 
   .header-wrapper {
     width: $content-width;

@@ -4,52 +4,79 @@ import ScrollingBlocks from '@/components/animation/ScrollingBlocks.vue';
 
 <template>
   <section class="skills-section">
-    <h2>Skills</h2>
+    <div class="content">
+      <h2>Skills & Expertise</h2>
 
-    <div class="card">
-      <h3>Languages</h3>
-      <ScrollingBlocks
-        :values="['HTML', 'CSS', 'SCSS', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart']" />
-    </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Languages</h3>
+          <ScrollingBlocks
+            :speed="0.375"
+            :values="['HTML', 'CSS', 'SCSS', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart']" />
+        </div>
 
-    <div class="card">
-      <h3>Frameworks</h3>
-      <ScrollingBlocks
-        :values="['Laravel', 'Vue', 'Flutter']" />
+        <div class="card">
+          <h3>Frameworks</h3>
+          <ScrollingBlocks
+            :speed="0.5"
+            :values="['Laravel', 'Vue', 'Flutter']" />
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
 .skills-section {
-  width: $content-width;
+  width: 100%;
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, transparent, rgba($color-primary, 0.05));
 
-  margin: 0 auto;
-  padding: $content-padding;
+  .content {
+    width: $content-width;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: $content-padding;
+  }
 
   h2 {
     text-align: center;
-    font-size: 2rem;
-    line-height: 1.5;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    background: linear-gradient(to right, $color-primary, $color-primary-light);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
   }
   
   h3 {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
+    color: $color-text;
+    font-weight: 600;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
   }
 
   .card {
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    padding: $card-padding;
-
     width: $card-width;
     max-width: 100%;
-    
-    background-color: $color-surface;
+    padding: $card-padding;
+    background-color: $color-card;
+    backdrop-filter: blur(10px);
     border: 1px solid $color-border;
-    border-radius: $card-padding * 0.5;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.125);
+    border-radius: $card-padding;
+    box-shadow: 
+      0 0 2rem rgba(0, 0, 0, 0.2),
+      0 0 0.5rem rgba($color-primary, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     .scrolling-container {
       position: relative;
@@ -57,7 +84,7 @@ import ScrollingBlocks from '@/components/animation/ScrollingBlocks.vue';
       &::before, &::after {
         content: '';
         display: block;
-        width: 1rem;
+        width: 2rem;
         height: 100%;
         position: absolute;
         top: 0;
@@ -67,12 +94,12 @@ import ScrollingBlocks from '@/components/animation/ScrollingBlocks.vue';
 
       &::before {
         left: 0;
-        background: linear-gradient(to right, $color-surface, transparent);
+        background: linear-gradient(to right, $color-card, transparent);
       }
 
       &::after {
         right: 0;
-        background: linear-gradient(to left, $color-surface, transparent);
+        background: linear-gradient(to left, $color-card, transparent);
       }
     }
   }
