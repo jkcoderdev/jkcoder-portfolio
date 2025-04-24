@@ -23,7 +23,6 @@ import ButtonPrimary from '@/components/button/ButtonPrimary.vue';
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
 
   &::before {
     content: '';
