@@ -179,31 +179,25 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
             font-size: 1.25rem;
             font-weight: 600;
             color: $color-primary-light;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.5rem;
             justify-content: center;
         }
 
         .skill-tag {
             background-color: $color-card;
             color: $color-text;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
+            padding: 0 0.75rem;
+            border-radius: 0.75rem;
             font-size: 0.95rem;
+            line-height: 1.5rem;
             border: 1px solid $color-border;
             transition: all 0.3s ease;
-
-            &:hover {
-                transform: translateY(-2px);
-                background-color: $color-card-hover;
-                border-color: $color-primary;
-                color: $color-primary-light;
-            }
         }
     }
 }
@@ -285,13 +279,6 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         border-radius: 1rem;
         background-color: $color-card;
         border: 1px solid $color-border;
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            border-color: $color-primary;
-            background-color: $color-card-hover;
-        }
 
         .icon-box {
             padding: 0.5rem;
