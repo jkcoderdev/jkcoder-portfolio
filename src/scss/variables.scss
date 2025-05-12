@@ -14,10 +14,11 @@ $color-secondary-light: #4ade80; // Lighter Green
 
 // Neutral colors
 $color-background: #030712; // Darker Background for better contrast
-$color-surface: #0a0e18; // Darker Surface
-$color-card: #080d1a; // Card Surface
+$color-surface: #0f172a; // Richer surface color
+$color-card: #1e293b; // New card background
 $color-text: #f8fafc; // Light text color
-$color-border: #1c2532; // Darker Border
+$color-border: #334155; // More visible border
+$color-card-hover: #2c3b52; // Hover state for cards
 
 // Status colors
 $color-success: #22c55e; // Green (Success)
@@ -26,4 +27,4 @@ $color-warning: #facc15; // Yellow (Warning)
 $color-info: #3b82f6; // Blue (Informational)
 
 // Additional shades
-$color-muted: #9ca3af; // Slightly brighter muted text
+$color-muted: #94a3b8; // Slightly brighter muted text
