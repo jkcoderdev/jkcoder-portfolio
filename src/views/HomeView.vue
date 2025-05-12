@@ -23,20 +23,37 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
   <section class="skills-section">
     <h1>Skills & Expertise</h1>
     
-    <div class="skills-grid">
-      <div class="category">
-          <h2>Languages</h2>
-          <p>HTML, CSS/SCSS, JavaScript, PHP, Python, Dart</p>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h2>Languages</h2>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS/SCSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Dart</span>
+        </div>
       </div>
 
-      <div class="category">
-          <h2>Frameworks</h2>
-          <p>Laravel, Vue, Flutter</p>
+      <div class="skill-category">
+        <h2>Frameworks</h2>
+        <div class="skill-tags">
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">Vue</span>
+          <span class="skill-tag">Flutter</span>
+        </div>
       </div>
       
-      <div class="category">
-          <h2>Tools</h2>
-          <p>Git, VSCode, XAMPP, Node.js, WSL</p>
+      <div class="skill-category">
+        <h2>Tools</h2>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">VSCode</span>
+          <span class="skill-tag">XAMPP</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">WSL</span>
+        </div>
       </div>
     </div>
   </section>
@@ -149,30 +166,15 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         margin-bottom: 2rem;
     }
 
-    .skills-grid {
-        display: grid;
-        gap: 1.5rem;
+    .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         max-width: 100%;
         margin: 0 auto;
-        
-        @media (min-width: 640px) {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
     }
 
-    .category {
-        padding: 1.5rem;
-        border-radius: 1rem;
-        background-color: $color-card;
-        border: 1px solid $color-border;
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            background-color: $color-card-hover;
-            border-color: $color-primary;
-        }
-
+    .skill-category {
         h2 {
             font-size: 1.25rem;
             font-weight: 600;
@@ -180,10 +182,28 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
             margin-bottom: 1rem;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background-color: $color-card;
             color: $color-text;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            border: 1px solid $color-border;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: $color-card-hover;
+                border-color: $color-primary;
+                color: $color-primary-light;
+            }
         }
     }
 }
