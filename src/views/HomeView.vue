@@ -299,3 +299,4 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         }
     }
 }
+</style>
