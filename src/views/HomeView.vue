@@ -67,31 +67,42 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         <div class="project-card">
             <h2>Grid Runner</h2>
             <p>A complete remake of "Canvas Game Classic" with improved visuals and mechanics.</p>
-            <em>HTML, CSS, JavaScript, PHP</em>
+            <div class="tech-block">HTML</div>
+            <div class="tech-block">CSS</div>
+            <div class="tech-block">JavaScript</div>
+            <div class="tech-block">PHP</div>
         </div>
         
         <div class="project-card">
             <h2>My Old Portfolio</h2>
             <p>Just a portfolio like this one.</p>
-            <em>HTML, CSS, JavaScript</em>
+            <div class="tech-block">HTML</div>
+            <div class="tech-block">CSS</div>
+            <div class="tech-block">JavaScript</div>
         </div>
         
         <div class="project-card">
             <h2>Canvas Game Classic</h2>
             <p>A simple "snake" inspired game where you eat food and get faster.</p>
-            <em>HTML, CSS, JavaScript</em>
+            <div class="tech-block">HTML</div>
+            <div class="tech-block">CSS</div>
+            <div class="tech-block">JavaScript</div>
         </div>
         
         <div class="project-card">
             <h2>Music Visualizer</h2>
             <p>Working music player with visual effects in background.</p>
-            <em>HTML, CSS, JavaScript</em>
+            <div class="tech-block">HTML</div>
+            <div class="tech-block">CSS</div>
+            <div class="tech-block">JavaScript</div>
         </div>
         
         <div class="project-card">
             <h2>Fancy Login Page</h2>
             <p>Login page design with animated background.</p>
-            <em>HTML, CSS, JavaScript</em>
+            <div class="tech-block">HTML</div>
+            <div class="tech-block">CSS</div>
+            <div class="tech-block">JavaScript</div>
         </div>
     </div>
   </section>
@@ -176,8 +187,8 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
     .skill-category {
         h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: $color-primary-light;
             margin-bottom: 0.75rem;
         }
@@ -190,14 +201,23 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         }
 
         .skill-tag {
-            background-color: $color-card;
-            color: $color-text;
             padding: 0 0.75rem;
-            border-radius: 0.75rem;
+
             font-size: 0.95rem;
-            line-height: 1.5rem;
+            line-height: 1.75rem;
+
+            background-color: rgba($color-card, 0.75);
+            color: rgba($color-text, 0.75);
+
+            border-radius: 0.75rem;
             border: 1px solid $color-border;
+            
             transition: all 0.3s ease;
+
+            &:hover {
+                color: $color-primary-light;
+                border: 1px solid $color-primary-dark;
+            }
         }
     }
 }
@@ -248,14 +268,18 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
             color: $color-text;
         }
 
-        em {
+        .tech-block {
             display: inline-block;
             color: $color-muted;
             font-style: normal;
             font-size: 0.9rem;
             padding: 0.25rem 0.5rem;
             background-color: rgba($color-primary, 0.1);
-            border-radius: 0.5rem;
+            border-radius: 0.25rem;
+
+            &:not(:last-of-type) {
+                margin-right: 0.5rem;
+            }
         }
     }
 }
