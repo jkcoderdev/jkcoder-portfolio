@@ -65,44 +65,69 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
     <div class="projects">
         <div class="project-card">
-            <h2>Grid Runner</h2>
-            <p>A complete remake of "Canvas Game Classic" with improved visuals and mechanics.</p>
-            <div class="tech-block">HTML</div>
-            <div class="tech-block">CSS</div>
-            <div class="tech-block">JavaScript</div>
-            <div class="tech-block">PHP</div>
+            <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/7887135/pexels-photo-7887135.jpeg" alt="Grid Runner Project" />
+            </div>
+            <div class="content">
+                <h2>Grid Runner</h2>
+                <p>A complete remake of "Canvas Game Classic" with improved visuals and mechanics.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+                <div class="tech-block">PHP</div>
+            </div>
         </div>
         
         <div class="project-card">
-            <h2>My Old Portfolio</h2>
-            <p>Just a portfolio like this one.</p>
-            <div class="tech-block">HTML</div>
-            <div class="tech-block">CSS</div>
-            <div class="tech-block">JavaScript</div>
+            <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio" />
+            </div>
+            <div class="content">
+                <h2>My Old Portfolio</h2>
+                <p>Just a portfolio like this one.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+            </div>
         </div>
         
         <div class="project-card">
-            <h2>Canvas Game Classic</h2>
-            <p>A simple "snake" inspired game where you eat food and get faster.</p>
-            <div class="tech-block">HTML</div>
-            <div class="tech-block">CSS</div>
-            <div class="tech-block">JavaScript</div>
+            <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg" alt="Canvas Game Classic" />
+            </div>
+            <div class="content">
+                <h2>Canvas Game Classic</h2>
+                <p>A simple "snake" inspired game where you eat food and get faster.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+            </div>
         </div>
         
         <div class="project-card">
-            <h2>Music Visualizer</h2>
-            <p>Working music player with visual effects in background.</p>
-            <div class="tech-block">HTML</div>
-            <div class="tech-block">CSS</div>
-            <div class="tech-block">JavaScript</div>
+            <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg" alt="Music Visualizer" />
+            </div>
+            <div class="content">
+                <h2>Music Visualizer</h2>
+                <p>Working music player with visual effects in background.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+            </div>
         </div>
         
         <div class="project-card">
-            <h2>Fancy Login Page</h2>
-            <p>Login page design with animated background.</p>
-            <div class="tech-block">HTML</div>
-            <div class="tech-block">CSS</div>
-            <div class="tech-block">JavaScript</div>
+            <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg" alt="Fancy Login Page" />
+            </div>
+            <div class="content">
+                <h2>Fancy Login Page</h2>
+                <p>Login page design with animated background.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+            </div>
         </div>
     </div>
   </section>
@@ -240,51 +265,66 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     }
 
     .project-card {
-        padding: 2rem;
-        
-        text-align: left;
-
+        display: flex;
         background-color: $color-card;
-
         border-radius: 1rem;
         border: 1px solid $color-border;
-        
+        overflow: hidden;
         transition: all 0.3s ease;
 
         &:hover {
             transform: translateY(-2px);
             background-color: $color-card-hover;
             border-color: $color-primary;
+
+            .thumbnail img {
+                transform: scale(1.05);
+            }
         }
 
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: $color-primary-light;
-            margin-bottom: 1rem;
+        .thumbnail {
+            width: 240px;
+            height: 180px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
         }
 
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            color: $color-text;
-        }
+        .content {
+            flex: 1;
+            padding: 1.5rem;
+            text-align: left;
 
-        .tech-block {
-            padding: 0.25rem 0.5rem;
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $color-primary-light;
+                margin-bottom: 1rem;
+            }
 
-            display: inline-block;
+            p {
+                margin-bottom: 1rem;
+                line-height: 1.5;
+                color: $color-text;
+            }
 
-            font-style: normal;
-            font-size: 0.9rem;
+            .tech-block {
+                padding: 0.25rem 0.5rem;
+                display: inline-block;
+                font-style: normal;
+                font-size: 0.9rem;
+                background-color: rgba($color-primary, 0.1);
+                color: $color-muted;
+                border-radius: 0.25rem;
 
-            background-color: rgba($color-primary, 0.1);
-            color: $color-muted;
-
-            border-radius: 0.25rem;
-
-            &:not(:last-of-type) {
-                margin-right: 0.5rem;
+                &:not(:last-of-type) {
+                    margin-right: 0.5rem;
+                }
             }
         }
     }
