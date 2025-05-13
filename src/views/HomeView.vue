@@ -66,7 +66,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     <div class="projects">
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio V2" />
+                <img src="@/assets/jkcoder-portfolio-v2.png" alt="My Old Portfolio V2" />
             </div>
             <div class="content">
                 <h2>My Old Portfolio V2</h2>
@@ -79,7 +79,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/7887135/pexels-photo-7887135.jpeg" alt="Grid Runner Project" />
+                <img src="@/assets/grid-runner.png" alt="Grid Runner Project" />
             </div>
             <div class="content">
                 <h2>Grid Runner</h2>
@@ -93,7 +93,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio V1" />
+                <img src="@/assets/jkcoder-portfolio-v1.png" alt="My Old Portfolio V1" />
             </div>
             <div class="content">
                 <h2>My Old Portfolio V1</h2>
@@ -106,7 +106,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg" alt="Canvas Game Classic" />
+                <img src="@/assets/canvas-game-classic.png" alt="Canvas Game Classic" />
             </div>
             <div class="content">
                 <h2>Canvas Game Classic</h2>
@@ -119,7 +119,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg" alt="Music Visualizer" />
+                <img src="@/assets/music-visualizer.png" alt="Music Visualizer" />
             </div>
             <div class="content">
                 <h2>Music Visualizer</h2>
@@ -132,7 +132,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg" alt="Fancy Login Page" />
+                <img src="@/assets/fancy-login-page.png" alt="Fancy Login Page" />
             </div>
             <div class="content">
                 <h2>Fancy Login Page</h2>
@@ -278,6 +278,8 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     }
 
     .project-card {
+        min-height: 180px;
+
         display: flex;
 
         background-color: $color-card;
@@ -300,7 +302,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         }
 
         .thumbnail {
-            width: 240px;
+            width: 280px;
             overflow: hidden;
 
             img {
