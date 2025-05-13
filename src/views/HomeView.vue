@@ -178,11 +178,12 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     }
 
     .skills-container {
+        margin: 0 auto;
+        max-width: 100%;
+        
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        max-width: 100%;
-        margin: 0 auto;
     }
 
     .skill-category {
@@ -196,8 +197,8 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
             justify-content: center;
+            gap: 0.5rem;
         }
 
         .skill-tag {
@@ -211,7 +212,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
             border-radius: 0.75rem;
             border: 1px solid $color-border;
-            
+
             transition: all 0.3s ease;
 
             &:hover {
@@ -233,21 +234,22 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     }
 
     .projects {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
-        
-        @media (min-width: 640px) {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
     }
 
     .project-card {
         padding: 2rem;
-        border-radius: 1rem;
-        background-color: $color-card;
-        border: 1px solid $color-border;
-        transition: all 0.3s ease;
+        
         text-align: left;
+
+        background-color: $color-card;
+
+        border-radius: 1rem;
+        border: 1px solid $color-border;
+        
+        transition: all 0.3s ease;
 
         &:hover {
             transform: translateY(-2px);
@@ -264,17 +266,21 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
         p {
             margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: 1.5;
             color: $color-text;
         }
 
         .tech-block {
+            padding: 0.25rem 0.5rem;
+
             display: inline-block;
-            color: $color-muted;
+
             font-style: normal;
             font-size: 0.9rem;
-            padding: 0.25rem 0.5rem;
+
             background-color: rgba($color-primary, 0.1);
+            color: $color-muted;
+
             border-radius: 0.25rem;
 
             &:not(:last-of-type) {
@@ -298,10 +304,13 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         margin: 0 auto;
         width: 240px;
         max-width: 100%;
+
         display: flex;
         align-items: center;
-        border-radius: 1rem;
+        
         background-color: $color-card;
+
+        border-radius: 1rem;
         border: 1px solid $color-border;
 
         .icon-box {
@@ -311,7 +320,9 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
             .icon {
                 width: 1.5rem;
                 height: 1.5rem;
+
                 display: block;
+
                 color: $color-primary-light;
                 fill: currentColor;
             }
@@ -320,8 +331,10 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         a {
             margin: 0 1rem;
             padding: 0.5rem 0;
+
             text-decoration: none;
             color: $color-text;
+            
             transition: 0.2s ease-in-out;
 
             &:hover {
