@@ -66,6 +66,19 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     <div class="projects">
         <div class="project-card">
             <div class="thumbnail">
+                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio V2" />
+            </div>
+            <div class="content">
+                <h2>My Old Portfolio V2</h2>
+                <p>My second portfolio.</p>
+                <div class="tech-block">HTML</div>
+                <div class="tech-block">CSS</div>
+                <div class="tech-block">JavaScript</div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="thumbnail">
                 <img src="https://images.pexels.com/photos/7887135/pexels-photo-7887135.jpeg" alt="Grid Runner Project" />
             </div>
             <div class="content">
@@ -80,11 +93,11 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         
         <div class="project-card">
             <div class="thumbnail">
-                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio" />
+                <img src="https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg" alt="My Old Portfolio V1" />
             </div>
             <div class="content">
-                <h2>My Old Portfolio</h2>
-                <p>Just a portfolio like this one.</p>
+                <h2>My Old Portfolio V1</h2>
+                <p>My first portfolio.</p>
                 <div class="tech-block">HTML</div>
                 <div class="tech-block">CSS</div>
                 <div class="tech-block">JavaScript</div>
@@ -266,10 +279,14 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
     .project-card {
         display: flex;
+
         background-color: $color-card;
+
         border-radius: 1rem;
         border: 1px solid $color-border;
+        
         overflow: hidden;
+
         transition: all 0.3s ease;
 
         &:hover {
@@ -284,7 +301,6 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
         .thumbnail {
             width: 240px;
-            height: 180px;
             overflow: hidden;
 
             img {
