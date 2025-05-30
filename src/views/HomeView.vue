@@ -185,7 +185,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     h2 {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
-        color: $color-primary-light;
+        color: $color-primary;
     }
 
     .socials {
