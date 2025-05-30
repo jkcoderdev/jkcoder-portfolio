@@ -29,10 +29,11 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         <div class="skill-tags">
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS/SCSS</span>
-          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">JavaScript/TypeScript</span>
           <span class="skill-tag">PHP</span>
           <span class="skill-tag">Python</span>
           <span class="skill-tag">Dart</span>
+          <span class="skill-tag">C/C++</span>
         </div>
       </div>
 
@@ -41,6 +42,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         <div class="skill-tags">
           <span class="skill-tag">Laravel</span>
           <span class="skill-tag">Vue</span>
+          <span class="skill-tag">Angular</span>
           <span class="skill-tag">Flutter</span>
         </div>
       </div>
@@ -52,7 +54,9 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
           <span class="skill-tag">VSCode</span>
           <span class="skill-tag">XAMPP</span>
           <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Android Studio</span>
           <span class="skill-tag">WSL</span>
+          <span class="skill-tag">Ubuntu</span>
         </div>
       </div>
     </div>
