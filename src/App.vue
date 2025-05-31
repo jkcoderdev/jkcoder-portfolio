@@ -31,15 +31,23 @@ import { RouterView, RouterLink } from 'vue-router';
 </template>
 
 <style lang="scss" scoped>
+$header-height: 4rem;
+
 .container {
   width: 800px;
   max-width: 100%;
   margin: 0 auto;
+
+  position: relative;
 }
 
 .header {
-  margin: 1rem 0;
-  padding: 1rem;
+  width: 100%;
+  height: $header-height;
+  padding: 0 1rem;
+
+  position: sticky;
+  top: 1rem;
 
   display: flex;
   align-items: center;
@@ -48,13 +56,15 @@ import { RouterView, RouterLink } from 'vue-router';
   border: 1px $color-border solid;
   border-radius: 0.75rem;
   background-color: rgba($color-surface, 0.5);
+  backdrop-filter: blur(1rem);
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.125);
 
   .logo {
     font-weight: 700;
     font-size: 1.5rem;
 
     .highlight {
-      color: $color-primary
+      color: $color-primary;
     }
   }
 
@@ -64,23 +74,22 @@ import { RouterView, RouterLink } from 'vue-router';
       gap: 1rem;
 
       list-style: none;
-      // color: $color-text;
 
       li > a {
         text-decoration: none;
-        color: currentColor;
         letter-spacing: 0.5px;
-        opacity: 0.75;
+        color: $color-muted;
 
         transition: .2s;
 
         &.active {
-          opacity: 1;
+          color: $color-text;
           font-weight: 700;
           pointer-events: none;
         }
 
         &:hover {
+          color: $color-text;
           text-shadow: 0 0 0.25rem $color-primary-light;
         }
       }
@@ -89,6 +98,6 @@ import { RouterView, RouterLink } from 'vue-router';
 }
 
 .content {
-  padding: 1rem;
+  margin-top: -4rem;
 }
 </style>

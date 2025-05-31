@@ -173,11 +173,15 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 }
 
 .start-section {
+    height: 100vh;
+    padding-top: 50%;
+
     text-align: center;
-    padding: 2rem 0;
 
     h1 {
+        margin-top: -3rem; // minus half line height
         font-size: 4rem;
+        line-height: 1.5;
         font-weight: 900;
         letter-spacing: 1px;
     }
