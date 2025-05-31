@@ -50,28 +50,30 @@ function onScroll() {
 </template>
 
 <style lang="scss" scoped>
+$container-width: 1200px;
+$container-padding: 1rem;
+
 .wrapper {
   height: 100vh;
   overflow-y: scroll;
 }
 
 .container {
-  width: 1200px;
+  width: $container-width;
   max-width: 100%;
   height: 100vh;
-  padding: 0 1rem;
+  padding: 0 $container-padding;
   margin: 0 auto;
-
-  position: relative;
 }
 
 .header {
-  width: 100%;
+  width: calc($container-width - 2 * $container-padding);
+  max-width: calc(100% - 2 * $container-padding - $scrollbar-width);
   height: 4rem;
   padding: 0 1rem;
   z-index: 1;
 
-  position: sticky;
+  position: fixed;
   top: 1rem;
 
   display: flex;
@@ -127,7 +129,7 @@ function onScroll() {
 }
 
 .content {
-  margin-top: -4rem;
+  // margin-top: -4rem;
   z-index: auto;
 }
 </style>

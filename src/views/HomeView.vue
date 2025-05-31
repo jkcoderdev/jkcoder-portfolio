@@ -385,7 +385,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 }
 
 .contact-section {
-    padding: 2rem 0;
+    padding: 4rem 0;
     text-align: center;
 
     h1 {
