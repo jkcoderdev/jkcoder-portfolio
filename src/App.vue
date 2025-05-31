@@ -4,19 +4,9 @@ import { onMounted, useTemplateRef, watch, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
 
 const wrapper = useTemplateRef('wrapper');
-const { x, y } = useScroll(wrapper, { behavior: 'smooth' });
+const { y } = useScroll(wrapper);
 
 const scrolled = computed(() => y.value > window.innerHeight / 4);
-
-watch([x, y], onScroll);
-
-onMounted(() => {
-  onScroll();
-});
-
-function onScroll() {
-  console.log(x.value, y.value, window.innerHeight);
-}
 </script>
 
 <template>
@@ -56,6 +46,7 @@ $container-padding: 1rem;
 .wrapper {
   height: 100vh;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .container {

@@ -11,13 +11,20 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     <h1>Jan Kozaruk</h1>
     <h2>Full-Stack Developer</h2>
 
+    <p class="description">
+        I'm a full-stack developer with expertise in building modern and efficient web applications.
+        I focus on writing clean, maintainable code and delivering high-quality solutions.
+    </p>
+
     <div class="socials">
         <GithubIcon class="icon" />
         <CodePenIcon class="icon" />
         <AtIcon class="icon" />
     </div>
 
-    <button class="more-button">Contact me</button>
+    <a href="#contact">
+        <button class="more-button">Contact me</button>
+    </a>
   </section>
 
   <div class="divider"></div>
@@ -153,7 +160,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
   <div class="divider"></div>
 
-  <section class="contact-section">
+  <section class="contact-section" id="contact">
     <h1>Contact me</h1>
 
     <div class="item">
@@ -176,12 +183,15 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
 .start-section {
     height: 100vh;
-    padding-top: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 
     h1 {
-        margin-top: -3rem; // minus half line height
         font-size: 5rem;
         line-height: 6rem;
         font-weight: 900;
@@ -192,6 +202,14 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         font-size: 1.5rem;
         line-height: 1;
         color: $color-primary;
+    }
+
+    .description {
+        margin-top: 1rem;
+        width: 540px;
+        max-width: 100%;
+        color: $color-muted;
+        letter-spacing: 0.25px;
     }
 
     .socials {
