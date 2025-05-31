@@ -1,41 +1,64 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
+import { onMounted, useTemplateRef, watch, computed } from 'vue';
+import { useScroll } from '@vueuse/core';
+
+const wrapper = useTemplateRef('wrapper');
+const { x, y } = useScroll(wrapper, { behavior: 'smooth' });
+
+const scrolled = computed(() => y.value > window.innerHeight / 4);
+
+watch([x, y], onScroll);
+
+onMounted(() => {
+  onScroll();
+});
+
+function onScroll() {
+  console.log(x.value, y.value, window.innerHeight);
+}
 </script>
 
 <template>
-  <div class="container">
-    <header class="header">
-      <div class="logo">
-        jkcoder<span class="highlight">.eu</span>
-      </div>
+  <div class="wrapper" ref="wrapper">
+    <div class="container">
+      <header class="header" :class="{ 'scrolled': scrolled }">
+        <div class="logo">
+          jkcoder<span class="highlight">.eu</span>
+        </div>
 
-      <nav class="navbar">
-        <ul>
-          <li>
-            <RouterLink to="/" activeClass="active">Home</RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/projects" activeClass="active">Projects</RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/about" activeClass="active">About</RouterLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        <nav class="navbar">
+          <ul>
+            <li>
+              <RouterLink to="/" activeClass="active">Home</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/projects" activeClass="active">Projects</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/about" activeClass="active">About</RouterLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-    <main class="content">
-      <RouterView />
-    </main>    
+      <main class="content">
+        <RouterView />
+      </main>    
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-$header-height: 4rem;
+.wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+}
 
 .container {
   width: 1200px;
   max-width: 100%;
+  height: 100vh;
   padding: 0 1rem;
   margin: 0 auto;
 
@@ -44,7 +67,7 @@ $header-height: 4rem;
 
 .header {
   width: 100%;
-  height: $header-height;
+  height: 4rem;
   padding: 0 1rem;
   z-index: 1;
 
@@ -55,11 +78,15 @@ $header-height: 4rem;
   align-items: center;
   justify-content: space-between;
 
-  border: 1px $color-border solid;
-  border-radius: 0.75rem;
-  background-color: rgba($color-surface, 0.5);
-  backdrop-filter: blur(1rem);
-  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.125);
+  transition: 0.2s;
+
+  &.scrolled {
+    border-radius: 0.75rem;
+    background-color: rgba($color-surface, 0.5);
+    backdrop-filter: blur(1rem);
+    box-shadow: inset 0 0 0 1px $color-border, 0 0 1rem rgba(255, 255, 255, 0.125);
+  }
+  
 
   .logo {
     font-weight: 700;
