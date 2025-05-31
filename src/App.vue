@@ -34,8 +34,9 @@ import { RouterView, RouterLink } from 'vue-router';
 $header-height: 4rem;
 
 .container {
-  width: 800px;
+  width: 1200px;
   max-width: 100%;
+  padding: 0 1rem;
   margin: 0 auto;
 
   position: relative;
@@ -45,6 +46,7 @@ $header-height: 4rem;
   width: 100%;
   height: $header-height;
   padding: 0 1rem;
+  z-index: 1;
 
   position: sticky;
   top: 1rem;
@@ -99,5 +101,6 @@ $header-height: 4rem;
 
 .content {
   margin-top: -4rem;
+  z-index: auto;
 }
 </style>

@@ -16,6 +16,8 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         <CodePenIcon class="icon" />
         <AtIcon class="icon" />
     </div>
+
+    <button class="more-button">Contact me</button>
   </section>
 
   <div class="divider"></div>
@@ -174,26 +176,26 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
 .start-section {
     height: 100vh;
-    padding-top: 50%;
+    padding-top: 50vh;
 
     text-align: center;
 
     h1 {
         margin-top: -3rem; // minus half line height
-        font-size: 4rem;
-        line-height: 1.5;
+        font-size: 5rem;
+        line-height: 6rem;
         font-weight: 900;
         letter-spacing: 1px;
     }
 
     h2 {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+        line-height: 1;
         color: $color-primary;
     }
 
     .socials {
-        margin: 0 auto;
+        margin: 2rem auto;
         width: fit-content;
         display: flex;
         gap: 1rem;
@@ -209,6 +211,29 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
             &:hover {
                 color: $color-text;
             }
+        }
+    }
+
+    .more-button {
+        padding: 0 1rem;
+        height: 2.25rem;
+
+        background-color: $color-primary;
+        color: $color-background;
+        border: none;
+        box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem 0 $color-primary-light;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 0.5rem;
+        transition: 0.2s;
+        
+        cursor: pointer;
+
+        &:hover {
+            background-color: transparent;
+            color: $color-primary;
+            box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem -0.125rem $color-primary-light;
         }
     }
 }
@@ -287,6 +312,9 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 
     .project-card {
         min-height: 180px;
+        width: 800px;
+        max-width: 100%;
+        margin: 0 auto;
 
         display: flex;
 
