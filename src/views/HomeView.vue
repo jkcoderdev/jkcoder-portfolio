@@ -17,9 +17,12 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     </p>
 
     <div class="socials">
-        <GithubIcon class="icon" />
-        <CodePenIcon class="icon" />
-        <EnvelopeIcon class="icon" />
+        <a href="https://github.com/jkcoderdev" target="_blank">
+            <GithubIcon class="icon" />
+        </a>
+        <a href="https://codepen.io/jan-kozaruk" target="_blank">
+            <CodePenIcon class="icon" />
+        </a>
     </div>
 
     <a href="#contact">
