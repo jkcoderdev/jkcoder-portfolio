@@ -1,7 +1,7 @@
 <script setup>
 import GithubIcon from '@/icons/github.svg';
 import CodePenIcon from '@/icons/codepen.svg';
-import AtIcon from '@/icons/at.svg';
+import EnvelopeIcon from '@/icons/envelope.svg';
 
 import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.svg';
 </script>
@@ -19,7 +19,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     <div class="socials">
         <GithubIcon class="icon" />
         <CodePenIcon class="icon" />
-        <AtIcon class="icon" />
+        <EnvelopeIcon class="icon" />
     </div>
 
     <a href="#contact">
