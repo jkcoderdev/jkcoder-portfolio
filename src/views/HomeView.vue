@@ -79,6 +79,20 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     <div class="projects">
         <div class="project-card">
             <div class="thumbnail">
+                <img src="@/assets/library-manager.png" alt="My Old Portfolio V2" />
+            </div>
+            <div class="content">
+                <h2>Library Manager</h2>
+                <p>A simple app for managing books in the library.</p>
+                <div class="tech-block">Angular</div>
+                <div class="tech-block">TypeScript</div>
+                <div class="tech-block">SCSS</div>
+                <div class="tech-block">Bootstrap</div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="thumbnail">
                 <img src="@/assets/jkcoder-portfolio-v2.png" alt="My Old Portfolio V2" />
             </div>
             <div class="content">
@@ -190,6 +204,7 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
     justify-content: center;
 
     text-align: center;
+    background-image: radial-gradient($color-primary, tranparent);
 
     h1 {
         font-size: 5rem;
@@ -221,13 +236,16 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
         .icon {
             width: 1.5rem;
             height: 1.5rem;
-            color: $color-muted;
+            color: $color-text;
             fill: currentColor;
-            cursor: pointer;
+            opacity: 0.75;
+
             transition: 0.2s ease-in-out;
 
+            cursor: pointer;
+
             &:hover {
-                color: $color-text;
+                opacity: 1;
             }
         }
     }

@@ -62,10 +62,10 @@ $container-padding: 1rem;
   max-width: calc(100% - 2 * $container-padding - $scrollbar-width);
   height: 4rem;
   padding: 0 1rem;
-  z-index: 1;
 
   position: fixed;
-  top: 1rem;
+  top: $container-padding;
+  z-index: 1;
 
   display: flex;
   align-items: center;
@@ -78,8 +78,21 @@ $container-padding: 1rem;
     background-color: rgba($color-surface, 0.5);
     backdrop-filter: blur(1rem);
     box-shadow: inset 0 0 0 1px $color-border, 0 0 1rem rgba(255, 255, 255, 0.125);
+
+    &::before {
+      width: 100%;
+      height: $container-padding;
+
+      content: '';
+      display: block;
+
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      
+      background: linear-gradient(to bottom, $color-background, rgba($color-background, 0.75));
+    }
   }
-  
 
   .logo {
     font-weight: 700;
@@ -120,7 +133,6 @@ $container-padding: 1rem;
 }
 
 .content {
-  // margin-top: -4rem;
   z-index: auto;
 }
 </style>
