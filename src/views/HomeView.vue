@@ -199,7 +199,9 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
 }
 
 .start-section {
-    height: 100vh;
+    padding-top: $container-padding + $header-height + 4rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;

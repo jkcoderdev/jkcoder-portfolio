@@ -40,9 +40,6 @@ const scrolled = computed(() => y.value > window.innerHeight / 4);
 </template>
 
 <style lang="scss" scoped>
-$container-width: 1200px;
-$container-padding: 1rem;
-
 .wrapper {
   height: 100vh;
   overflow-y: scroll;
@@ -60,7 +57,7 @@ $container-padding: 1rem;
 .header {
   width: calc($container-width - 2 * $container-padding);
   max-width: calc(100% - 2 * $container-padding - $scrollbar-width);
-  height: 4rem;
+  height: $header-height;
   padding: 0 1rem;
 
   position: fixed;
