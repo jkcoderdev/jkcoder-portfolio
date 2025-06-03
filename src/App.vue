@@ -6,7 +6,7 @@ import { useScroll } from '@vueuse/core';
 const wrapper = useTemplateRef('wrapper');
 const { y } = useScroll(wrapper);
 
-const scrolled = computed(() => y.value > window.innerHeight / 4);
+const scrolled = computed(() => y.value > 32);
 </script>
 
 <template>
@@ -49,7 +49,6 @@ const scrolled = computed(() => y.value > window.innerHeight / 4);
 .container {
   width: $container-width;
   max-width: 100%;
-  height: 100vh;
   padding: 0 $container-padding;
   margin: 0 auto;
 }
