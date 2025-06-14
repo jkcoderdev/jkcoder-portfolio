@@ -1,11 +1,44 @@
 <script setup>
-import { onMounted } from 'vue';
-
+import { ref, computed, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import ProjectModal from '@/components/ProjectModal.vue';
 import { projects } from '@/data';
 
-onMounted(() => {
+const route = useRoute();
+const router = useRouter();
+
+const selectedProject = ref(null);
+const isModalOpen = ref(false);
+
+// Watch for route changes to handle project detail modal
+watch(() => route.params.projectName, (projectName) => {
+  if (projectName) {
+    const project = projects.find(p => 
+      p.name.toLowerCase().replace(/\s+/g, '-') === projectName
+    );
     
-});
+    if (project) {
+      selectedProject.value = project;
+      isModalOpen.value = true;
+    } else {
+      // Project not found, redirect to projects page
+      router.push('/projects');
+    }
+  } else {
+    isModalOpen.value = false;
+    selectedProject.value = null;
+  }
+}, { immediate: true });
+
+const openProjectModal = (project) => {
+  const projectSlug = project.name.toLowerCase().replace(/\s+/g, '-');
+  router.push(`/projects/${projectSlug}`);
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  selectedProject.value = null;
+};
 </script>
 
 <template>
@@ -14,18 +47,31 @@ onMounted(() => {
         <p class="description">Here's a collection of projects I've worked on. Each project represents different skills and technologies I've used throughout my journey.</p>
 
         <div class="projects-grid">
-            <div class="project-card" v-for="project in projects">
+            <div 
+                class="project-card" 
+                v-for="project in projects" 
+                :key="project.name"
+                @click="openProjectModal(project)"
+            >
                 <div class="thumbnail">
                     <img :src="project.screenshot" :alt="project.name" />
                 </div>
                 <div class="content">
                     <h2>{{ project.name }}</h2>
                     <p>{{ project.shortDescription }}</p>
-                    <div class="tech-block" v-for="techBlock in project.tech">{{ techBlock }}</div>
+                    <div class="tech-block" v-for="techBlock in project.tech" :key="techBlock">{{ techBlock }}</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <ProjectModal 
+        v-if="selectedProject"
+        :project="selectedProject"
+        :isOpen="isModalOpen"
+        @close="closeModal"
+    />
 </template>
 
 <style lang="scss" scoped>
@@ -63,6 +109,7 @@ onMounted(() => {
         border: 1px solid $color-border;
         overflow: hidden;
         transition: all 0.3s ease;
+        cursor: pointer;
 
         &:hover {
             transform: translateY(-2px);
@@ -118,3 +165,4 @@ onMounted(() => {
     }
 }
 </style>
+</template>
