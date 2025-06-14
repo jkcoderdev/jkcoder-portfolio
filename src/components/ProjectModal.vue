@@ -282,4 +282,3 @@ onUnmounted(() => {
   }
 }
 </style>
-</component>
