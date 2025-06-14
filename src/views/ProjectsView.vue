@@ -165,4 +165,3 @@ const closeModal = () => {
     }
 }
 </style>
-</template>
