@@ -1,99 +1,27 @@
+<script setup>
+import { onMounted } from 'vue';
+
+import { projects } from '@/data';
+
+onMounted(() => {
+    
+});
+</script>
+
 <template>
     <section class="projects-section">
         <h1>My Projects</h1>
         <p class="description">Here's a collection of projects I've worked on. Each project represents different skills and technologies I've used throughout my journey.</p>
 
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" v-for="project in projects">
                 <div class="thumbnail">
-                    <img src="@/assets/library-manager.png" alt="Library Manager" />
+                    <img :src="project.screenshot" :alt="project.name" />
                 </div>
                 <div class="content">
-                    <h2>Library Manager</h2>
-                    <p>A simple app for managing books in the library.</p>
-                    <div class="tech-block">Angular</div>
-                    <div class="tech-block">TypeScript</div>
-                    <div class="tech-block">SCSS</div>
-                    <div class="tech-block">Bootstrap</div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/jkcoder-portfolio-v2.png" alt="My Old Portfolio V2" />
-                </div>
-                <div class="content">
-                    <h2>My Old Portfolio V2</h2>
-                    <p>My second portfolio.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/grid-runner.png" alt="Grid Runner Project" />
-                </div>
-                <div class="content">
-                    <h2>Grid Runner</h2>
-                    <p>A complete remake of "Canvas Game Classic" with improved visuals and mechanics.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
-                    <div class="tech-block">PHP</div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/jkcoder-portfolio-v1.png" alt="My Old Portfolio V1" />
-                </div>
-                <div class="content">
-                    <h2>My Old Portfolio V1</h2>
-                    <p>My first portfolio.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/canvas-game-classic.png" alt="Canvas Game Classic" />
-                </div>
-                <div class="content">
-                    <h2>Canvas Game Classic</h2>
-                    <p>A simple "snake" inspired game where you eat food and get faster.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/music-visualizer.png" alt="Music Visualizer" />
-                </div>
-                <div class="content">
-                    <h2>Music Visualizer</h2>
-                    <p>Working music player with visual effects in background.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="thumbnail">
-                    <img src="@/assets/fancy-login-page.png" alt="Fancy Login Page" />
-                </div>
-                <div class="content">
-                    <h2>Fancy Login Page</h2>
-                    <p>Login page design with animated background.</p>
-                    <div class="tech-block">HTML</div>
-                    <div class="tech-block">CSS</div>
-                    <div class="tech-block">JavaScript</div>
+                    <h2>{{ project.name }}</h2>
+                    <p>{{ project.shortDescription }}</p>
+                    <div class="tech-block" v-for="techBlock in project.tech">{{ techBlock }}</div>
                 </div>
             </div>
         </div>

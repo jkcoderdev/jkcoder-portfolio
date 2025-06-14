@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
-import { onMounted, useTemplateRef, watch, computed } from 'vue';
+import { useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
 
 const wrapper = useTemplateRef('wrapper');

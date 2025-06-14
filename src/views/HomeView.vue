@@ -1,9 +1,12 @@
 <script setup>
+import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.svg';
 import GithubIcon from '@/icons/github.svg';
 import CodePenIcon from '@/icons/codepen.svg';
-import EnvelopeIcon from '@/icons/envelope.svg';
 
-import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.svg';
+import { projects } from '@/data';
+
+const RECENT_PROJECTS_LIMIT = 3;
+const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
 </script>
 
 <template>
@@ -77,102 +80,24 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
   <div class="divider"></div>
 
   <section class="projects-section">
-    <h1>Projects</h1>
+    <h1>Recent projects</h1>
 
     <div class="projects">
-        <div class="project-card">
+        <div class="project-card" v-for="project in recentProjects">
             <div class="thumbnail">
-                <img src="@/assets/library-manager.png" alt="My Old Portfolio V2" />
+                <img :src="project.screenshot" :alt="project.name" />
             </div>
             <div class="content">
-                <h2>Library Manager</h2>
-                <p>A simple app for managing books in the library.</p>
-                <div class="tech-block">Angular</div>
-                <div class="tech-block">TypeScript</div>
-                <div class="tech-block">SCSS</div>
-                <div class="tech-block">Bootstrap</div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/jkcoder-portfolio-v2.png" alt="My Old Portfolio V2" />
-            </div>
-            <div class="content">
-                <h2>My Old Portfolio V2</h2>
-                <p>My second portfolio.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/grid-runner.png" alt="Grid Runner Project" />
-            </div>
-            <div class="content">
-                <h2>Grid Runner</h2>
-                <p>A complete remake of "Canvas Game Classic" with improved visuals and mechanics.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
-                <div class="tech-block">PHP</div>
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/jkcoder-portfolio-v1.png" alt="My Old Portfolio V1" />
-            </div>
-            <div class="content">
-                <h2>My Old Portfolio V1</h2>
-                <p>My first portfolio.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/canvas-game-classic.png" alt="Canvas Game Classic" />
-            </div>
-            <div class="content">
-                <h2>Canvas Game Classic</h2>
-                <p>A simple "snake" inspired game where you eat food and get faster.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/music-visualizer.png" alt="Music Visualizer" />
-            </div>
-            <div class="content">
-                <h2>Music Visualizer</h2>
-                <p>Working music player with visual effects in background.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="thumbnail">
-                <img src="@/assets/fancy-login-page.png" alt="Fancy Login Page" />
-            </div>
-            <div class="content">
-                <h2>Fancy Login Page</h2>
-                <p>Login page design with animated background.</p>
-                <div class="tech-block">HTML</div>
-                <div class="tech-block">CSS</div>
-                <div class="tech-block">JavaScript</div>
+                <h2>{{ project.name }}</h2>
+                <p>{{ project.shortDescription }}</p>
+                <div class="tech-block" v-for="techBlock in project.tech">{{ techBlock }}</div>
             </div>
         </div>
     </div>
+
+    <RouterLink to="/projects">
+        <button class="more-button">See more</button>
+    </RouterLink>
   </section>
 
   <div class="divider"></div>
@@ -421,6 +346,30 @@ import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.
                     margin-right: 0.5rem;
                 }
             }
+        }
+    }
+
+    .more-button {
+        margin-top: 2rem;
+        padding: 0 1rem;
+        height: 2.25rem;
+
+        background-color: $color-primary;
+        color: $color-background;
+        border: none;
+        box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem 0 $color-primary-light;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 0.5rem;
+        transition: 0.2s;
+        
+        cursor: pointer;
+
+        &:hover {
+            background-color: transparent;
+            color: $color-primary;
+            box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem -0.125rem $color-primary-light;
         }
     }
 }
