@@ -8,30 +8,35 @@ import fancyLoginPageScreenshot from '@/assets/fancy-login-page.png';
 
 const projects = [
   {
+    id: 'library-manager',
     name: 'Library Manager',
     shortDescription: 'A simple app for managing books in the library.',
     tech: ['Angular', 'TypeScript', 'SCSS', 'Bootstrap'],
     screenshot: libraryManagerScreenshot
   },
   {
+    id: 'portfolio-v2',
     name: 'My Old Portfolio V2',
     shortDescription: 'My second portfolio.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     screenshot: jkcoderPortfolioV2Screenshot
   },
   {
+    id: 'grid-runner',
     name: 'Grid Runner',
     shortDescription: 'A complete remake of "Canvas Game Classic" with improved visuals and mechanics.',
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP'],
     screenshot: gridRunnerScreenshot
   },
   {
+    id: 'porttolio-v1',
     name: 'My Old Portfolio V1',
     shortDescription: 'My first portfolio.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     screenshot: jkcoderPortfolioV1Screenshot
   },
   {
+    id: 'canvas-game-classic',
     name: 'Canvas Game Classic',
     shortDescription: 'A simple "snake" inspired game where you eat food and get faster.',
     tech: ['HTML', 'CSS', 'JavaScript'],
