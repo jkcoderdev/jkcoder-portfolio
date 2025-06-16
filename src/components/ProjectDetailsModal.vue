@@ -32,15 +32,6 @@ const handleBackdropClick = (event) => {
   }
 };
 
-// Prevent body scroll when modal is open
-watch(() => props.isOpen, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-});
-
 onMounted(() => {
   document.addEventListener('keydown', handleEscape);
 });
@@ -105,7 +96,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(1rem);
   z-index: 1000;
   
   display: flex;
