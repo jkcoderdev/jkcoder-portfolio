@@ -62,9 +62,7 @@ onUnmounted(() => {
           </div>
           
           <div class="modal-content">
-            <div class="project-image">
-              <img :src="project.screenshot" :alt="project.name" />
-            </div>
+            <img class="project-image" :src="project.screenshot" :alt="project.name" />
             
             <div class="project-info">
               <div class="description">
@@ -94,34 +92,39 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  padding-top: 4rem;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(1rem);
-  z-index: 1000;
-  
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  pointer-events: all;
+  z-index: 1;
 }
 
 .modal-container {
   width: 100%;
-  max-width: 100%;
-  height: 85vh;
+  height: 100%;
   background-color: $color-surface;
   border-radius: 1rem 1rem 0 0;
-  border: 1px solid $color-border;
-  box-shadow: 0 -4px 2rem rgba(0, 0, 0, 0.3);
   
   display: flex;
   flex-direction: column;
   overflow: hidden;
   pointer-events: all;
+
+  animation: glideIn 0.3s ease-in;
+}
+
+@keyframes glideIn {
+  from {
+    translate: 0 4rem;
+  }
+
+  to {
+    translate: 0 0;
+  }
 }
 
 .modal-header {
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   border-bottom: 1px solid $color-border;
   
   display: flex;
@@ -159,27 +162,33 @@ onUnmounted(() => {
 }
 
 .modal-content {
+  width: $container-width;
+  max-width: 100%;
+  margin: 0 auto;
+
   flex: 1;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   overflow-y: auto;
   
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  &::-webkit-scrollbar-track, &::-webkit-scrollbar-corner {
+    background-color: $color-surface;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-color: $color-surface;
+  }
 }
 
 .project-image {
-  width: 100%;
-  aspect-ratio: 16/9;
+  height: 360px;
+  max-width: 100%;
+  margin: 0 auto;
   border-radius: 0.75rem;
-  overflow: hidden;
   border: 1px solid $color-border;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 }
 
 .project-info {
