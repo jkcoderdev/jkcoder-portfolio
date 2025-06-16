@@ -43,12 +43,14 @@ const projects = [
     screenshot: canvasGameClassicScreenshot
   },
   {
+    id: 'music-visualizer',
     name: 'Music Visualizer',
     shortDescription: 'Working music player with visual effects in background.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     screenshot: musicVisualizerScreenshot
   },
   {
+    id: 'fancy-login-page',
     name: 'Fancy Login Page',
     shortDescription: 'Login page design with animated background.',
     tech: ['HTML', 'CSS', 'JavaScript'],
