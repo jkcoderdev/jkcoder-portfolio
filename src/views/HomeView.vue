@@ -1,12 +1,27 @@
 <script setup>
+import { ref } from 'vue';
 import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.svg';
 import GithubIcon from '@/icons/github.svg';
 import CodePenIcon from '@/icons/codepen.svg';
+import ProjectDetailsModal from '@/components/ProjectDetailsModal.vue';
 
 import { projects } from '@/data';
 
 const RECENT_PROJECTS_LIMIT = 3;
 const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
+
+const selectedProject = ref(null);
+const isModalOpen = ref(false);
+
+const openProjectModal = (project) => {
+  selectedProject.value = project;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  selectedProject.value = null;
+};
 </script>
 
 <template>
@@ -83,14 +98,14 @@ const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
     <h1>Recent projects</h1>
 
     <div class="projects">
-        <div class="project-card" v-for="project in recentProjects">
+        <div class="project-card" v-for="project in recentProjects" :key="project.id" @click="openProjectModal(project)">
             <div class="thumbnail">
                 <img :src="project.screenshot" :alt="project.name" />
             </div>
             <div class="content">
                 <h2>{{ project.name }}</h2>
                 <p>{{ project.shortDescription }}</p>
-                <div class="tech-block" v-for="techBlock in project.tech">{{ techBlock }}</div>
+                <div class="tech-block" v-for="techBlock in project.tech" :key="techBlock">{{ techBlock }}</div>
             </div>
         </div>
     </div>
@@ -113,6 +128,13 @@ const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
         <a href="mailto:kontakt@jkcoder.eu">kontakt@jkcoder.eu</a>
     </div>
   </section>
+
+  <!-- Project Details Modal -->
+  <ProjectDetailsModal 
+    :project="selectedProject"
+    :isOpen="isModalOpen"
+    @close="closeModal"
+  />
 </template>
 
 <style lang="scss" scoped>
@@ -292,6 +314,7 @@ const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
         overflow: hidden;
 
         transition: all 0.3s ease;
+        cursor: pointer;
 
         &:hover {
             transform: translateY(-2px);

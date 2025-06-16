@@ -1,11 +1,10 @@
 <script setup>
-import { computed, onMounted, onUnmounted, watch } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { watch, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   project: {
     type: Object,
-    required: true
+    default: null
   },
   isOpen: {
     type: Boolean,
@@ -15,17 +14,8 @@ const props = defineProps({
 
 const emit = defineEmits(['close']);
 
-const router = useRouter();
-const route = useRoute();
-
 const closeModal = () => {
   emit('close');
-  // Go back in history to remove the modal route
-  if (window.history.length > 1) {
-    router.go(-1);
-  } else {
-    router.push('/projects');
-  }
 };
 
 // Handle escape key
@@ -65,7 +55,7 @@ onUnmounted(() => {
   <Teleport to="body">
     <Transition name="modal">
       <div 
-        v-if="isOpen" 
+        v-if="isOpen && project" 
         class="modal-backdrop" 
         @click="handleBackdropClick"
       >
@@ -94,9 +84,9 @@ onUnmounted(() => {
               <div class="technologies">
                 <h2>Technologies Used</h2>
                 <div class="tech-tags">
-                  <span class="tech-tag" v-for="tech in project.tech" :key="tech">
+                  <div class="tech-block" v-for="tech in project.tech" :key="tech">
                     {{ tech }}
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,13 +111,13 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 1rem;
+  pointer-events: all;
 }
 
 .modal-container {
   width: 100%;
-  max-width: 900px;
-  max-height: 80vh;
+  max-width: 100%;
+  height: 85vh;
   background-color: $color-surface;
   border-radius: 1rem 1rem 0 0;
   border: 1px solid $color-border;
@@ -136,6 +126,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  pointer-events: all;
 }
 
 .modal-header {
@@ -188,7 +179,7 @@ onUnmounted(() => {
 
 .project-image {
   width: 100%;
-  max-height: 300px;
+  aspect-ratio: 16/9;
   border-radius: 0.75rem;
   overflow: hidden;
   border: 1px solid $color-border;
@@ -224,14 +215,13 @@ onUnmounted(() => {
   gap: 0.5rem;
 }
 
-.tech-tag {
-  padding: 0.5rem 0.75rem;
-  background-color: rgba($color-primary, 0.1);
-  color: $color-primary-light;
-  border: 1px solid rgba($color-primary, 0.2);
-  border-radius: 0.5rem;
+.tech-block {
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
   font-size: 0.9rem;
-  font-weight: 500;
+  background-color: rgba($color-primary, 0.1);
+  color: $color-muted;
+  border-radius: 0.25rem;
 }
 
 // Transitions
@@ -260,13 +250,8 @@ onUnmounted(() => {
 
 // Responsive design
 @media (max-width: 768px) {
-  .modal-backdrop {
-    padding: 0;
-  }
-  
   .modal-container {
-    max-height: 90vh;
-    border-radius: 1rem 1rem 0 0;
+    height: 90vh;
   }
   
   .modal-header {

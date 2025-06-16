@@ -1,38 +1,14 @@
 <script setup>
-import { ref, computed, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import ProjectModal from '@/components/ProjectModal.vue';
+import { ref } from 'vue';
+import ProjectDetailsModal from '@/components/ProjectDetailsModal.vue';
 import { projects } from '@/data';
-
-const route = useRoute();
-const router = useRouter();
 
 const selectedProject = ref(null);
 const isModalOpen = ref(false);
 
-// Watch for route changes to handle project detail modal
-watch(() => route.params.projectName, (projectName) => {
-  if (projectName) {
-    const project = projects.find(p => 
-      p.name.toLowerCase().replace(/\s+/g, '-') === projectName
-    );
-    
-    if (project) {
-      selectedProject.value = project;
-      isModalOpen.value = true;
-    } else {
-      // Project not found, redirect to projects page
-      router.push('/projects');
-    }
-  } else {
-    isModalOpen.value = false;
-    selectedProject.value = null;
-  }
-}, { immediate: true });
-
 const openProjectModal = (project) => {
-  const projectSlug = project.name.toLowerCase().replace(/\s+/g, '-');
-  router.push(`/projects/${projectSlug}`);
+  selectedProject.value = project;
+  isModalOpen.value = true;
 };
 
 const closeModal = () => {
@@ -50,7 +26,7 @@ const closeModal = () => {
             <div 
                 class="project-card" 
                 v-for="project in projects" 
-                :key="project.name"
+                :key="project.id"
                 @click="openProjectModal(project)"
             >
                 <div class="thumbnail">
@@ -65,12 +41,11 @@ const closeModal = () => {
         </div>
     </section>
 
-    <!-- Project Modal -->
-    <ProjectModal 
-        v-if="selectedProject"
-        :project="selectedProject"
-        :isOpen="isModalOpen"
-        @close="closeModal"
+    <!-- Project Details Modal -->
+    <ProjectDetailsModal 
+      :project="selectedProject"
+      :isOpen="isModalOpen"
+      @close="closeModal"
     />
 </template>
 
