@@ -67,11 +67,13 @@ onUnmounted(() => {
             <div class="project-info">
               <div class="description">
                 <h2>Description</h2>
-                <p>{{ project.shortDescription }}</p>
+                
+                <p v-if="project.description" v-html="project.description"></p>
+                <p v-else>{{ project.shortDescription }}</p>
               </div>
               
               <div class="technologies">
-                <h2>Technologies Used</h2>
+                <h2>Main technologies</h2>
                 <div class="tech-tags">
                   <div class="tech-block" v-for="tech in project.tech" :key="tech">
                     {{ tech }}
@@ -85,6 +87,18 @@ onUnmounted(() => {
     </Transition>
   </Teleport>
 </template>
+
+<style lang="scss">
+.description a {
+  text-decoration: none;
+  color: $color-primary;
+  transition: 0.2s;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .modal-backdrop {
