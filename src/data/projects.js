@@ -25,28 +25,28 @@ const projects = [
     id: 'grid-runner',
     name: 'Grid Runner',
     shortDescription: 'A complete remake of "Canvas Game Classic" with improved visuals and mechanics.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Web Audio', 'Canvas API', 'PHP'],
     screenshot: gridRunnerScreenshot
   },
   {
     id: 'porttolio-v1',
     name: 'My Old Portfolio V1',
     shortDescription: 'My first portfolio.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Canvas API'],
     screenshot: jkcoderPortfolioV1Screenshot
   },
   {
     id: 'canvas-game-classic',
     name: 'Canvas Game Classic',
     shortDescription: 'A simple "snake" inspired game where you eat food and get faster.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['JavaScript', 'Canvas API'],
     screenshot: canvasGameClassicScreenshot
   },
   {
     id: 'music-visualizer',
     name: 'Music Visualizer',
     shortDescription: 'Working music player with visual effects in background.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Web Audio'],
     screenshot: musicVisualizerScreenshot
   },
   {
