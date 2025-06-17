@@ -70,6 +70,10 @@ onUnmounted(() => {
                 
                 <p v-if="project.description" v-html="project.description"></p>
                 <p v-else>{{ project.shortDescription }}</p>
+
+                <p v-if="project.repo">Source code: <a :href="project.repo" target="_blank">{{ project.repo }}</a></p>
+
+                <p v-if="project.url">Website: <a :href="project.url" target="_blank">{{ project.url }}</a></p>
               </div>
               
               <div class="technologies">
@@ -220,6 +224,7 @@ onUnmounted(() => {
   p {
     line-height: 1.6;
     color: $color-muted;
+    margin: 0.5rem 0;
   }
 }
 
