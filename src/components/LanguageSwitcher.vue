@@ -1,57 +1,19 @@
 <script setup>
+import { useLanguageStore } from '@/stores/language';
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
-import EnglishFlag from '@/assets/flags/gb.svg';
-import PolishFlag from '@/assets/flags/pl.svg';
-
-const languages = [
-  { code: 'en', name: 'English', icon: EnglishFlag },
-  { code: 'pl', name: 'Polski', icon: PolishFlag }
-];
-
 const isDropdownOpen = ref(false);
-const currentLanguage = ref('en');
 
-// Get browser language or default to English
-const getBrowserLanguage = () => {
-  const browserLang = navigator.language.toLowerCase();
+const languageStore = useLanguageStore();
+const { language: currentLanguage, languageData: currentLanguageData, languages } = languageStore;
 
-  for (const language of languages) {
-    if (browserLang.startsWith(language.code)) {
-      return language.code;
-    }
-  }
-
-  return 'en';
+const selectLanguage = (langCode) => {
+  languageStore.setLanguage(langCode);
+  isDropdownOpen.value = false;
 };
-
-// Load language from localStorage or browser
-const loadLanguage = () => {
-  const savedLanguage = localStorage.getItem('preferred-language');
-  if (savedLanguage && languages.some(lang => lang.code === savedLanguage)) {
-    currentLanguage.value = savedLanguage;
-  } else {
-    currentLanguage.value = getBrowserLanguage();
-  }
-};
-
-// Save language to localStorage
-const saveLanguage = (langCode) => {
-  localStorage.setItem('preferred-language', langCode);
-};
-
-const currentLangData = computed(() => {
-  return languages.find(lang => lang.code === currentLanguage.value) || languages[0];
-});
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
-};
-
-const selectLanguage = (langCode) => {
-  currentLanguage.value = langCode;
-  saveLanguage(langCode);
-  isDropdownOpen.value = false;
 };
 
 const closeDropdown = () => {
@@ -73,7 +35,7 @@ const handleEscape = (event) => {
 };
 
 onMounted(() => {
-  loadLanguage();
+  languageStore.loadLanguage();
   document.addEventListener('click', handleClickOutside);
   document.addEventListener('keydown', handleEscape);
 });
@@ -87,7 +49,7 @@ onUnmounted(() => {
 <template>
   <div class="language-switcher">
     <button class="language-button" @click="toggleDropdown" :class="{ 'active': isDropdownOpen }">
-      <component :is="currentLangData.icon" class="flag" />
+      <component :is="currentLanguageData.icon" class="flag" />
       <svg 
         class="arrow" 
         :class="{ 'rotated': isDropdownOpen }"
