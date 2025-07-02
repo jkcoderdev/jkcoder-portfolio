@@ -34,13 +34,17 @@ export const useLanguageStore = defineStore('language', () => {
     if (saved) {
       currentLanguage.value = saved;
     } else {
-      currentLanguage.value = getBrowserLanguage();
+      const browserLanguage = getBrowserLanguage();
+      setLanguage(browserLanguage);
     }
   };
+  
+  const language = computed(() => currentLanguage.value);
+  const languageData = computed(() => languages.find((lang) => lang.code == currentLanguage.value));
 
   return {
-    language: computed(() => currentLanguage.value),
-    languageData: computed(() => languages.find((lang) => lang.code == currentLanguage.value)),
+    language,
+    languageData,
     languages,
     setLanguage,
     loadLanguage

@@ -1,13 +1,21 @@
 <script setup>
 import { RouterView, RouterLink } from 'vue-router';
-import { useTemplateRef, computed } from 'vue';
+import { onBeforeMount, useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
+
+import { useLanguageStore } from './stores/language';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 
 const wrapper = useTemplateRef('wrapper');
 const { y } = useScroll(wrapper);
 
 const scrolled = computed(() => y.value > 32);
+
+const languageStore = useLanguageStore();
+
+onBeforeMount(() => {
+  languageStore.loadLanguage();
+});
 </script>
 
 <template>

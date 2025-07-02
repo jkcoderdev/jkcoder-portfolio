@@ -1,11 +1,11 @@
 <script setup>
 import { useLanguageStore } from '@/stores/language';
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const isDropdownOpen = ref(false);
 
 const languageStore = useLanguageStore();
-const { language: currentLanguage, languageData: currentLanguageData, languages } = languageStore;
+const languages = languageStore.languages;
 
 const selectLanguage = (langCode) => {
   languageStore.setLanguage(langCode);
@@ -35,7 +35,6 @@ const handleEscape = (event) => {
 };
 
 onMounted(() => {
-  languageStore.loadLanguage();
   document.addEventListener('click', handleClickOutside);
   document.addEventListener('keydown', handleEscape);
 });
@@ -49,7 +48,7 @@ onUnmounted(() => {
 <template>
   <div class="language-switcher">
     <button class="language-button" @click="toggleDropdown" :class="{ 'active': isDropdownOpen }">
-      <component :is="currentLanguageData.icon" class="flag" />
+      <component :is="languageStore.languageData.icon" class="flag" />
       <svg 
         class="arrow" 
         :class="{ 'rotated': isDropdownOpen }"
@@ -70,7 +69,7 @@ onUnmounted(() => {
           v-for="language in languages"
           :key="language.code"
           class="dropdown-item"
-          :class="{ 'selected': language.code === currentLanguage }"
+          :class="{ 'selected': language.code === languageStore.language }"
           @click="selectLanguage(language.code)"
         >
           <component :is="language.icon" class="flag" />
