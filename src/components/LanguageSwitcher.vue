@@ -1,9 +1,12 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
+import EnglishFlag from '@/assets/flags/gb.svg';
+import PolishFlag from '@/assets/flags/pl.svg';
+
 const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'pl', name: 'Polski', flag: '🇵🇱' }
+  { code: 'en', name: 'English', icon: EnglishFlag },
+  { code: 'pl', name: 'Polski', icon: PolishFlag }
 ];
 
 const isDropdownOpen = ref(false);
@@ -12,9 +15,13 @@ const currentLanguage = ref('en');
 // Get browser language or default to English
 const getBrowserLanguage = () => {
   const browserLang = navigator.language.toLowerCase();
-  if (browserLang.startsWith('pl')) {
-    return 'pl';
+
+  for (const language of languages) {
+    if (browserLang.startsWith(language.code)) {
+      return language.code;
+    }
   }
+
   return 'en';
 };
 
@@ -80,7 +87,7 @@ onUnmounted(() => {
 <template>
   <div class="language-switcher">
     <button class="language-button" @click="toggleDropdown" :class="{ 'active': isDropdownOpen }">
-      <span class="flag">{{ currentLangData.flag }}</span>
+      <component :is="currentLangData.icon" class="flag" />
       <svg 
         class="arrow" 
         :class="{ 'rotated': isDropdownOpen }"
@@ -104,7 +111,7 @@ onUnmounted(() => {
           :class="{ 'selected': language.code === currentLanguage }"
           @click="selectLanguage(language.code)"
         >
-          <span class="flag">{{ language.flag }}</span>
+          <component :is="language.icon" class="flag" />
           <span class="name">{{ language.name }}</span>
         </button>
       </div>
@@ -140,8 +147,7 @@ onUnmounted(() => {
   }
   
   .flag {
-    font-size: 1.125rem;
-    line-height: 1;
+    height: 1.125rem;
   }
   
   .arrow {
@@ -197,8 +203,7 @@ onUnmounted(() => {
   }
   
   .flag {
-    font-size: 1.125rem;
-    line-height: 1;
+    height: 1rem;
   }
   
   .name {
