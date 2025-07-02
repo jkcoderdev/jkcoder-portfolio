@@ -2,6 +2,7 @@
 import { RouterView, RouterLink } from 'vue-router';
 import { useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 
 const wrapper = useTemplateRef('wrapper');
 const { y } = useScroll(wrapper);
@@ -17,19 +18,23 @@ const scrolled = computed(() => y.value > 32);
           jkcoder<span class="highlight">.eu</span>
         </div>
 
-        <nav class="navbar">
-          <ul>
-            <li>
-              <RouterLink to="/" activeClass="active">Home</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/projects" activeClass="active">Projects</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/about" activeClass="active">About</RouterLink>
-            </li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav class="navbar">
+            <ul>
+              <li>
+                <RouterLink to="/" activeClass="active">Home</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/projects" activeClass="active">Projects</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/about" activeClass="active">About</RouterLink>
+              </li>
+            </ul>
+          </nav>
+
+          <LanguageSwitcher />
+        </div>
       </header>
 
       <main class="content">
@@ -99,6 +104,12 @@ const scrolled = computed(() => y.value > 32);
     }
   }
 
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .navbar {
     ul {
       display: flex;
@@ -130,5 +141,22 @@ const scrolled = computed(() => y.value > 32);
 
 .content {
   z-index: auto;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .header {
+    .header-right {
+      gap: 0.5rem;
+    }
+    
+    .navbar ul {
+      gap: 0.5rem;
+      
+      li > a {
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
 </style>
