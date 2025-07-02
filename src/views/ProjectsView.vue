@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal.vue';
-import { projects } from '@/data';
+import projects from '@/data/projects';
 
 const selectedProject = ref(null);
 const isModalOpen = ref(false);
@@ -30,11 +30,11 @@ const closeModal = () => {
                 @click="openProjectModal(project)"
             >
                 <div class="thumbnail">
-                    <img :src="project.screenshot" :alt="project.name" />
+                    <img :src="project.screenshot" :alt="$t('projects.' + project.id + '.name')" />
                 </div>
                 <div class="content">
-                    <h2>{{ project.name }}</h2>
-                    <p>{{ project.shortDescription }}</p>
+                    <h2>{{ $t('projects.' + project.id + '.name') }}</h2>
+                    <p>{{ $t('projects.' + project.id + '.shortDescription') }}</p>
                     <div class="tech-block" v-for="techBlock in project.tech" :key="techBlock">{{ techBlock }}</div>
                 </div>
             </div>

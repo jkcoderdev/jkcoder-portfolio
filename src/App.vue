@@ -30,13 +30,13 @@ onBeforeMount(() => {
           <nav class="navbar">
             <ul>
               <li>
-                <RouterLink to="/" activeClass="active">Home</RouterLink>
+                <RouterLink to="/" activeClass="active">{{ $t('general.pages.home') }}</RouterLink>
               </li>
               <li>
-                <RouterLink to="/projects" activeClass="active">Projects</RouterLink>
+                <RouterLink to="/projects" activeClass="active">{{ $t('general.pages.projects') }}</RouterLink>
               </li>
               <li>
-                <RouterLink to="/about" activeClass="active">About</RouterLink>
+                <RouterLink to="/about" activeClass="active">{{ $t('general.pages.about') }}</RouterLink>
               </li>
             </ul>
           </nav>

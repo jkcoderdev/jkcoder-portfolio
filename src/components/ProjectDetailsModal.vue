@@ -52,7 +52,7 @@ onUnmounted(() => {
       >
         <div class="modal-container">
           <div class="modal-header">
-            <h1>{{ project.name }}</h1>
+            <h1>{{ $t('projects.' + project.id + '.name') }}</h1>
             <button class="close-button" @click="closeModal">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -62,14 +62,14 @@ onUnmounted(() => {
           </div>
           
           <div class="modal-content">
-            <img class="project-image" :src="project.screenshot" :alt="project.name" />
+            <img class="project-image" :src="project.screenshot" :alt="$t('projects.' + project.id + '.name')" />
             
             <div class="project-info">
               <div class="description">
                 <h2>Description</h2>
                 
-                <p v-if="project.description" v-html="project.description"></p>
-                <p v-else>{{ project.shortDescription }}</p>
+                <p v-if="$t('projects.' + project.id + '.description')" v-html="$t('projects.' + project.id + '.description')"></p>
+                <p v-else>{{ $t('projects.' + project.id + '.shortDescription') }}</p>
 
                 <p v-if="project.repo">Source code: <a :href="project.repo" target="_blank">{{ project.repo }}</a></p>
 

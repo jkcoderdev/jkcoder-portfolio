@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import EnglishFlag from '@/assets/flags/gb.svg';
 import PolishFlag from '@/assets/flags/pl.svg';
@@ -38,9 +39,14 @@ export const useLanguageStore = defineStore('language', () => {
       setLanguage(browserLanguage);
     }
   };
-  
+
   const language = computed(() => currentLanguage.value);
   const languageData = computed(() => languages.find((lang) => lang.code == currentLanguage.value));
+
+  const { locale } = useI18n();
+  watch(currentLanguage, (newLang) => {
+    locale.value = newLang;
+  }, { immediate: true });
 
   return {
     language,

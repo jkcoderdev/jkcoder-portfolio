@@ -5,7 +5,7 @@ import GithubIcon from '@/icons/github.svg';
 import CodePenIcon from '@/icons/codepen.svg';
 import ProjectDetailsModal from '@/components/ProjectDetailsModal.vue';
 
-import { projects } from '@/data';
+import projects from '@/data/projects';
 
 const RECENT_PROJECTS_LIMIT = 3;
 const recentProjects = projects.slice(0, RECENT_PROJECTS_LIMIT);
@@ -30,8 +30,7 @@ const closeModal = () => {
     <h2>Full-Stack Developer</h2>
 
     <p class="description">
-        I'm a full-stack developer with expertise in building modern and efficient web applications.
-        I focus on writing clean, maintainable code and delivering high-quality solutions.
+        {{ $t('general.shortDescription') }}
     </p>
 
     <div class="socials">
@@ -100,11 +99,11 @@ const closeModal = () => {
     <div class="projects">
         <div class="project-card" v-for="project in recentProjects" :key="project.id" @click="openProjectModal(project)">
             <div class="thumbnail">
-                <img :src="project.screenshot" :alt="project.name" />
+                <img :src="project.screenshot" :alt="$t('projects.' + project.id + '.name')" />
             </div>
             <div class="content">
-                <h2>{{ project.name }}</h2>
-                <p>{{ project.shortDescription }}</p>
+                <h2>{{ $t('projects.' + project.id + '.name') }}</h2>
+                <p>{{ $t('projects.' + project.id + '.shortDescription') }}</p>
                 <div class="tech-block" v-for="techBlock in project.tech" :key="techBlock">{{ techBlock }}</div>
             </div>
         </div>
