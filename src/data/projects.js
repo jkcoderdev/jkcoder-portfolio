@@ -1,10 +1,10 @@
-import libraryManagerScreenshot from '@/assets/library-manager.png';
-import jkcoderPortfolioV2Screenshot from '@/assets/jkcoder-portfolio-v2.png';
-import gridRunnerScreenshot from '@/assets/grid-runner.png';
-import jkcoderPortfolioV1Screenshot from '@/assets/jkcoder-portfolio-v1.png';
-import canvasGameClassicScreenshot from '@/assets/canvas-game-classic.png';
-import musicVisualizerScreenshot from '@/assets/music-visualizer.png';
-import fancyLoginPageScreenshot from '@/assets/fancy-login-page.png';
+import libraryManagerScreenshot from '@/assets/projects/library-manager.png';
+import jkcoderPortfolioV2Screenshot from '@/assets/projects/jkcoder-portfolio-v2.png';
+import gridRunnerScreenshot from '@/assets/projects/grid-runner.png';
+import jkcoderPortfolioV1Screenshot from '@/assets/projects/jkcoder-portfolio-v1.png';
+import canvasGameClassicScreenshot from '@/assets/projects/canvas-game-classic.png';
+import musicVisualizerScreenshot from '@/assets/projects/music-visualizer.png';
+import fancyLoginPageScreenshot from '@/assets/projects/fancy-login-page.png';
 
 const projects = [
   {
