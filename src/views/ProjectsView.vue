@@ -19,8 +19,8 @@ const closeModal = () => {
 
 <template>
     <section class="projects-section">
-        <h1>My Projects</h1>
-        <p class="description">Here's a collection of projects I've worked on. Each project represents different skills and technologies I've used throughout my journey.</p>
+        <h1>{{ $t('projects.title') }}</h1>
+        <p class="description">{{ $t('projects.description') }}</p>
 
         <div class="projects-grid">
             <div 

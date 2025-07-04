@@ -1,4 +1,7 @@
 export default {
+  title: 'Moje projekty',
+  description: 'Tutaj znajdziesz projekty, które stworzyłem. Każdy z nich pokazuje inne umiejętności i technologie, z których korzystałem na swojej ścieżce rozwoju.',
+  
   'library-manager': {
     name: 'Library Manager',
     shortDescription: 'Prosta aplikacja do zarządzania książkami w bibliotece.',

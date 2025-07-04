@@ -27,7 +27,7 @@ const closeModal = () => {
 <template>
   <section class="start-section">
     <h1>Jan Kozaruk</h1>
-    <h2>Full-Stack Developer</h2>
+    <h2>{{ $t('general.subtitle') }}</h2>
 
     <p class="description">
         {{ $t('general.shortDescription') }}
@@ -43,18 +43,18 @@ const closeModal = () => {
     </div>
 
     <a href="#contact">
-        <button class="more-button">Contact me</button>
+        <button class="more-button">{{ $t('general.contactButton') }}</button>
     </a>
   </section>
 
   <div class="divider"></div>
 
   <section class="skills-section">
-    <h1>Skills & Expertise</h1>
+    <h1>{{ $t('general.sections.skills.title') }}</h1>
     
     <div class="skills-container">
       <div class="skill-category">
-        <h2>Languages</h2>
+        <h2>{{ $t('general.sections.skills.languages') }}</h2>
         <div class="skill-tags">
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS/SCSS</span>
@@ -67,7 +67,7 @@ const closeModal = () => {
       </div>
 
       <div class="skill-category">
-        <h2>Frameworks</h2>
+        <h2>{{ $t('general.sections.skills.frameworks') }}</h2>
         <div class="skill-tags">
           <span class="skill-tag">Laravel</span>
           <span class="skill-tag">Vue</span>
@@ -77,7 +77,7 @@ const closeModal = () => {
       </div>
       
       <div class="skill-category">
-        <h2>Tools</h2>
+        <h2>{{ $t('general.sections.skills.tools') }}</h2>
         <div class="skill-tags">
           <span class="skill-tag">Git</span>
           <span class="skill-tag">VSCode</span>
@@ -94,7 +94,7 @@ const closeModal = () => {
   <div class="divider"></div>
 
   <section class="projects-section">
-    <h1>Recent projects</h1>
+    <h1>{{ $t('general.sections.projects.title') }}</h1>
 
     <div class="projects">
         <div class="project-card" v-for="project in recentProjects" :key="project.id" @click="openProjectModal(project)">
@@ -110,14 +110,14 @@ const closeModal = () => {
     </div>
 
     <RouterLink to="/projects">
-        <button class="more-button">See more</button>
+        <button class="more-button">{{ $t('general.sections.projects.moreButton') }}</button>
     </RouterLink>
   </section>
 
   <div class="divider"></div>
 
   <section class="contact-section" id="contact">
-    <h1>Contact me</h1>
+    <h1>{{ $t('general.sections.contact.title') }}</h1>
 
     <div class="item">
         <div class="icon-box">

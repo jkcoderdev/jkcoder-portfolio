@@ -1,4 +1,7 @@
 export default {
+  title: 'My Projects',
+  description: 'Here\'s a collection of projects I\'ve worked on. Each project represents different skills and technologies I\'ve used throughout my journey.',
+  
   'library-manager': {
     name: 'Library Manager',
     shortDescription: 'A simple app for managing books in the library.',
