@@ -1,14 +1,25 @@
 <script setup>
-import { useLanguageStore } from '@/stores/language';
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import content from '@/content';
+
+const route = useRoute();
+const router = useRouter();
+
+const supportedLocales = Object.keys(content);
+const currentLocale = computed(() => route.params.locale || 'en');
 
 const isDropdownOpen = ref(false);
 
-const languageStore = useLanguageStore();
-const languages = languageStore.languages;
-
 const selectLanguage = (langCode) => {
-  languageStore.setLanguage(langCode);
+  if (!route.name) return;
+
+  router.push({
+    name: route.name,
+    params: { ...route.params, locale: langCode },
+    query: route.query
+  });
+
   isDropdownOpen.value = false;
 };
 
@@ -48,7 +59,7 @@ onUnmounted(() => {
 <template>
   <div class="language-switcher">
     <button class="language-button" @click="toggleDropdown" :class="{ 'active': isDropdownOpen }">
-      <component :is="languageStore.languageData.icon" class="flag" />
+      <component :is="content[currentLocale].flag" class="flag" />
       <svg 
         class="arrow" 
         :class="{ 'rotated': isDropdownOpen }"
@@ -66,14 +77,14 @@ onUnmounted(() => {
     <Transition name="dropdown">
       <div v-if="isDropdownOpen" class="dropdown">
         <button
-          v-for="language in languages"
-          :key="language.code"
+          v-for="code in supportedLocales"
+          :key="code"
           class="dropdown-item"
-          :class="{ 'selected': language.code === languageStore.language }"
-          @click="selectLanguage(language.code)"
+          :class="{ 'selected': code === currentLocale }"
+          @click="selectLanguage(code)"
         >
-          <component :is="language.icon" class="flag" />
-          <span class="name">{{ language.name }}</span>
+          <component :is="content[code].flag" class="flag" />
+          <span class="name">{{ content[code].languageName }}</span>
         </button>
       </div>
     </Transition>

@@ -8,6 +8,8 @@ import router from './router';
 
 import content from './content';
 
+const supportedLocales = Object.keys(content);
+
 const app = createApp(App);
 
 const pinia = createPinia();
@@ -17,6 +19,19 @@ const i18n = createI18n({
   locale: 'en',
   fallbackLocale: 'en',
   messages: content
+});
+
+router.beforeEach((to, from, next) => {
+  const locale = to.params.locale;
+
+  // If no supported locale is found, redirect to fallback
+  if (!supportedLocales.includes(locale)) {
+    return next('/en');
+  }
+
+  // Set locale in i18n
+  i18n.global.locale.value = locale;
+  next();
 });
 
 app.use(router);

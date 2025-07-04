@@ -1,21 +1,18 @@
 <script setup>
-import { RouterView, RouterLink } from 'vue-router';
-import { onBeforeMount, useTemplateRef, computed } from 'vue';
+import { RouterView, RouterLink, useRoute } from 'vue-router';
+import { useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
 
-import { useLanguageStore } from './stores/language';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
+
+const route = useRoute();
+
+const currentLocale = computed(() => route.params.locale || 'en');
 
 const wrapper = useTemplateRef('wrapper');
 const { y } = useScroll(wrapper);
 
 const scrolled = computed(() => y.value > 32);
-
-const languageStore = useLanguageStore();
-
-onBeforeMount(() => {
-  languageStore.loadLanguage();
-});
 </script>
 
 <template>
@@ -30,13 +27,29 @@ onBeforeMount(() => {
           <nav class="navbar">
             <ul>
               <li>
-                <RouterLink to="/" activeClass="active">{{ $t('general.pages.home') }}</RouterLink>
+                <RouterLink
+                  :to="`/${currentLocale}`"
+                  active-class="active"
+                  exact-active-class="active"
+                >
+                  {{ $t('general.pages.home') }}
+                </RouterLink>
               </li>
               <li>
-                <RouterLink to="/projects" activeClass="active">{{ $t('general.pages.projects') }}</RouterLink>
+                <RouterLink
+                  :to="`/${currentLocale}/projects`"
+                  active-class="active"
+                >
+                  {{ $t('general.pages.projects') }}
+                </RouterLink>
               </li>
               <li>
-                <RouterLink to="/about" activeClass="active">{{ $t('general.pages.about') }}</RouterLink>
+                <RouterLink
+                  :to="`/${currentLocale}/about`"
+                  active-class="active"
+                >
+                  {{ $t('general.pages.about') }}
+                </RouterLink>
               </li>
             </ul>
           </nav>
