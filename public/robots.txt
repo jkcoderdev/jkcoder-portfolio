@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jkcoder.eu/sitemap.xml
