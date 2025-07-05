@@ -11,9 +11,9 @@
   RewriteCond %{REQUEST_URI} !=/
   RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # Rewrite "/en" to "/en/index.html"
-  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-  RewriteRule ^([a-z]{2})$ $1/index.html [L]
+  # Rewrite "/en" or "/pl" to "en.html", "pl.html"
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([a-z]{2})$ $1.html [L]
 
   # Rewrite clean URLs like "/en/about" to "/en/about.html"
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
