@@ -2,7 +2,7 @@
 import { RouterView, RouterLink, useRoute } from 'vue-router';
 import { useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 

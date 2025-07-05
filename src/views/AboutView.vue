@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 
 const { getLocaleMessage, locale, t } = useI18n();

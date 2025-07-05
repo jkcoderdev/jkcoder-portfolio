@@ -5,7 +5,6 @@ import App from './App.vue';
 // import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createI18n } from 'vue-i18n';
-import { createHead } from '@vueuse/head';
 
 import { ViteSSG } from 'vite-ssg';
 
@@ -18,7 +17,6 @@ export const createApp = ViteSSG(App, {
   routes,
 }, ({app, router, initialState}) => {
   const pinia = createPinia();
-  const head = createHead();
 
   const i18n = createI18n({
     legacy: false,
@@ -43,7 +41,6 @@ export const createApp = ViteSSG(App, {
   app.use(router);
   app.use(pinia);
   app.use(i18n);
-  app.use(head);
 });
 
 export async function includedRoutes(paths, routes) {

@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@material-design-icons/svg": "^0.14.15",
+    "@unhead/vue": "^2.0.11",
     "@vueuse/core": "^13.3.0",
-    "@vueuse/head": "^2.0.0",
     "pinia": "^3.0.3",
     "sass": "^1.86.0",
     "vue": "^3.5.13",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.2.1",
-    "vite-svg-loader": "^5.1.0",
-    "vite-ssg": "^28.0.0"
+    "vite-ssg": "^28.0.0",
+    "vite-svg-loader": "^5.1.0"
   }
 }
