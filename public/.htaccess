@@ -2,20 +2,23 @@
   RewriteEngine On
   RewriteBase /
 
-  # Serve files directly if they exist
+  # Serve existing files directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Remove trailing slashes (except for root "/")
+  # Remove trailing slash (but not for root "/")
   RewriteCond %{REQUEST_URI} !=/
   RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # Rewrite "/en" or "/pl" to "en.html", "pl.html"
+  # Rewrite clean locale URLs like "/en" → "/en.html"
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^([a-z]{2})$ $1.html [L]
+  RewriteRule ^([a-z]{2})$ /$1.html [L]
 
-  # Rewrite clean URLs like "/en/about" to "/en/about.html"
+  # Rewrite subpaths like "/en/about" → "/en/about.html"
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.+)$ $1.html [L]
+  RewriteRule ^(.+)$ /$1.html [L]
+
+  # Fallback to index.html (if needed for unknown paths)
+  RewriteRule ^.*$ /index.html [L]
 </IfModule>
