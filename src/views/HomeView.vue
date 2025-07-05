@@ -140,7 +140,7 @@ useHead({
         </div>
     </div>
 
-    <RouterLink to="/projects">
+    <RouterLink :to="`/${locale}/projects`">
         <button class="more-button">{{ $t('general.sections.projects.moreButton') }}</button>
     </RouterLink>
   </section>
