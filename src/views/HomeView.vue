@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useHead } from '@vueuse/head';
+import { useI18n } from 'vue-i18n';
+
 import EmailMaterialIcon from '@material-design-icons/svg/round/alternate_email.svg';
 import GithubIcon from '@/icons/github.svg';
 import CodePenIcon from '@/icons/codepen.svg';
@@ -22,6 +25,34 @@ const closeModal = () => {
   isModalOpen.value = false;
   selectedProject.value = null;
 };
+
+const { locale, t } = useI18n();
+
+useHead({
+  title: 'Jan Kozaruk - ' + t('meta.home.title'),
+  meta: [
+    {
+      name: 'description',
+      content: t('meta.home.description')
+    },
+    {
+      property: 'og:title',
+      content: t('meta.home.title')
+    },
+    {
+      property: 'og:description',
+      content: t('meta.home.description')
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      rel: 'canonical',
+      href: `https://jkcoder.eu/${locale}/`
+    }
+  ]
+});
 </script>
 
 <template>

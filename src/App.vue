@@ -2,12 +2,19 @@
 import { RouterView, RouterLink, useRoute } from 'vue-router';
 import { useTemplateRef, computed } from 'vue';
 import { useScroll } from '@vueuse/core';
+import { useHead } from '@vueuse/head';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 
 const route = useRoute();
 
 const currentLocale = computed(() => route.params.locale || 'en');
+
+useHead({
+  htmlAttrs: {
+    lang: currentLocale.value,
+  },
+});
 
 const wrapper = useTemplateRef('wrapper');
 const { y } = useScroll(wrapper);
@@ -32,7 +39,7 @@ const scrolled = computed(() => y.value > 32);
                   active-class="active"
                   exact-active-class="active"
                 >
-                  {{ $t('general.pages.home') }}
+                  {{ $t('meta.home.title') }}
                 </RouterLink>
               </li>
               <li>
@@ -40,7 +47,7 @@ const scrolled = computed(() => y.value > 32);
                   :to="`/${currentLocale}/projects`"
                   active-class="active"
                 >
-                  {{ $t('general.pages.projects') }}
+                  {{ $t('meta.projects.title') }}
                 </RouterLink>
               </li>
               <li>
@@ -48,7 +55,7 @@ const scrolled = computed(() => y.value > 32);
                   :to="`/${currentLocale}/about`"
                   active-class="active"
                 >
-                  {{ $t('general.pages.about') }}
+                  {{ $t('meta.about.title') }}
                 </RouterLink>
               </li>
             </ul>

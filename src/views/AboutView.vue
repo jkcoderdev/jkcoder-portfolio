@@ -1,12 +1,39 @@
 <script setup>
 import { computed } from 'vue';
+import { useHead } from '@vueuse/head';
 import { useI18n } from 'vue-i18n';
 
-const { getLocaleMessage, locale } = useI18n();
+const { getLocaleMessage, locale, t } = useI18n();
 
 const paragraphs = computed(() => {
     const messages = getLocaleMessage(locale.value);
     return messages.about.paragraphs;
+});
+
+useHead({
+  title: 'Jan Kozaruk - ' + t('meta.about.title'),
+  meta: [
+    {
+      name: 'description',
+      content: t('meta.about.description')
+    },
+    {
+      property: 'og:title',
+      content: t('meta.about.title')
+    },
+    {
+      property: 'og:description',
+      content: t('meta.about.description')
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      rel: 'canonical',
+      href: `https://jkcoder.eu/${locale}/about`
+    }
+  ]
 });
 </script>
 

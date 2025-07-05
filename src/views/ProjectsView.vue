@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useHead } from '@vueuse/head';
+import { useI18n } from 'vue-i18n';
+
 import ProjectDetailsModal from '@/components/ProjectDetailsModal.vue';
 import projects from '@/data/projects';
 
@@ -15,6 +18,34 @@ const closeModal = () => {
   isModalOpen.value = false;
   selectedProject.value = null;
 };
+
+const { locale, t } = useI18n();
+
+useHead({
+  title: 'Jan Kozaruk - ' + t('meta.projects.title'),
+  meta: [
+    {
+      name: 'description',
+      content: t('meta.projects.description')
+    },
+    {
+      property: 'og:title',
+      content: t('meta.projects.title')
+    },
+    {
+      property: 'og:description',
+      content: t('meta.projects.description')
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      rel: 'canonical',
+      href: `https://jkcoder.eu/${locale}/projects`
+    }
+  ]
+});
 </script>
 
 <template>
