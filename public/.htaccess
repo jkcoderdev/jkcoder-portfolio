@@ -2,26 +2,20 @@
   RewriteEngine On
   RewriteBase /
 
-  # Serve existing files directly
-  RewriteCond %{REQUEST_FILENAME} -f
-  RewriteRule ^ - [L]
-
-  # Serve existing directories directly
+  # Serve files directly if they exist
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Handle root language routes (e.g., /en → /en/index.html, /pl → /pl/index.html)
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^([^/]+)$ $1/index.html [L]
+  # Remove trailing slashes (except for root "/")
+  RewriteCond %{REQUEST_URI} !=/
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # Handle directory requests with trailing slash (e.g., /en/ → /en/index.html)
-  RewriteCond %{REQUEST_FILENAME}index.html -f
-  RewriteRule ^(.*)/$ $1/index.html [L]
+  # Rewrite "/en" to "/en/index.html"
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^([a-z]{2})$ $1/index.html [L]
 
-  # Handle clean URLs (e.g., /en/about → /en/about.html)
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
-
-  # Fallback for SPA behavior - redirect everything else to index.html
-  RewriteRule ^ index.html [L]
+  # Rewrite clean URLs like "/en/about" to "/en/about.html"
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
