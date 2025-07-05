@@ -1,8 +1,19 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Don't redirect requests for existing files or directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Exclude important public files from SPA routing
+  RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [OR]
+  RewriteCond %{REQUEST_URI} ^/robots\.txt$ [OR]
+  RewriteCond %{REQUEST_URI} ^/favicon\.ico$ [OR]
+  RewriteCond %{REQUEST_URI} \.(css|js|png|jpe?g|svg|webp|woff2?|ttf|eot|mp4|webm|ico)$
+  RewriteRule ^ - [L]
+
+  # Redirect everything else to index.html
   RewriteRule . /index.html [L]
 </IfModule>
