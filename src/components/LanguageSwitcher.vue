@@ -17,7 +17,9 @@ const selectLanguage = (langCode) => {
   router.push({
     name: route.name,
     params: { ...route.params, locale: langCode },
-    query: route.query
+    query: route.query,
+  }).then(() => {
+    location.reload();
   });
 
   isDropdownOpen.value = false;
