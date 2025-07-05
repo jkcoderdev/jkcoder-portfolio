@@ -14,4 +14,8 @@
   # Rewrite "/en" or "/pl" to "en.html", "pl.html"
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^([a-z]{2})$ $1.html [L]
+
+  # Rewrite clean URLs like "/en/about" to "/en/about.html"
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
