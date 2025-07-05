@@ -10,7 +10,7 @@ import content from '../content';
 
 const supportedLocales = Object.keys(content);
 
-const routes = [
+export const routes = [
   {
     path: `/:locale(${supportedLocales.join('|')})`, 
     component: LocaleLayout,
