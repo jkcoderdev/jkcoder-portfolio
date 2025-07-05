@@ -57,12 +57,13 @@ const closeModal = () => {
         <h2>{{ $t('general.sections.skills.languages') }}</h2>
         <div class="skill-tags">
           <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS/SCSS</span>
-          <span class="skill-tag">JavaScript/TypeScript</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">SCSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
           <span class="skill-tag">PHP</span>
           <span class="skill-tag">Python</span>
-          <span class="skill-tag">Dart</span>
-          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">C++</span>
         </div>
       </div>
 
@@ -80,12 +81,11 @@ const closeModal = () => {
         <h2>{{ $t('general.sections.skills.tools') }}</h2>
         <div class="skill-tags">
           <span class="skill-tag">Git</span>
-          <span class="skill-tag">VSCode</span>
-          <span class="skill-tag">XAMPP</span>
           <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Android Studio</span>
           <span class="skill-tag">WSL</span>
           <span class="skill-tag">Ubuntu</span>
+          <span class="skill-tag">VSCode</span>
+          <span class="skill-tag">Android Studio</span>
         </div>
       </div>
     </div>
