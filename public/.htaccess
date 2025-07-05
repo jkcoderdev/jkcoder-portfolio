@@ -2,16 +2,26 @@
   RewriteEngine On
   RewriteBase /
 
-  # Serve existing files or directories directly
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  # Serve existing files directly
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Serve existing directories directly
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # If a directory is requested and an index.html exists inside, serve it
+  # Handle root language routes (e.g., /en → /en/index.html, /pl → /pl/index.html)
   RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^([^/]+)$ $1/index.html [L]
+
+  # Handle directory requests with trailing slash (e.g., /en/ → /en/index.html)
+  RewriteCond %{REQUEST_FILENAME}index.html -f
   RewriteRule ^(.*)/$ $1/index.html [L]
 
-  # Rewrite clean URLs (e.g. /pl/about → /pl/about.html)
+  # Handle clean URLs (e.g., /en/about → /en/about.html)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
+
+  # Fallback for SPA behavior - redirect everything else to index.html
+  RewriteRule ^ index.html [L]
 </IfModule>
