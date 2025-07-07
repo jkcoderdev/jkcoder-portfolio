@@ -27,11 +27,11 @@ export const routes = [
 
       for (const locale of supportedLocales) {
         if (browserLanguage.startsWith(locale)) {
-          return '/' + locale;
+          return '/' + locale + '/';
         }
       }
 
-      return '/en'; // Fallback locale
+      return '/en/'; // Fallback locale
     }
   }
 ];

@@ -31,7 +31,7 @@ export const createApp = ViteSSG(App, {
 
     // If no supported locale is found, redirect to fallback
     if (!supportedLocales.includes(locale)) {
-      return next('/en');
+      return next('/en/');
     }
 
     // Set locale in i18n
