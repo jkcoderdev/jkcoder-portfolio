@@ -15,6 +15,7 @@ const supportedLocales = Object.keys(content);
 
 export const createApp = ViteSSG(App, {
   routes,
+  formatting: 'directory',
 }, ({app, router, initialState}) => {
   const pinia = createPinia();
 
@@ -45,10 +46,10 @@ export const createApp = ViteSSG(App, {
 
 export async function includedRoutes(paths, routes) {
   return [
-    '/en',
+    '/en/',
     '/en/about',
     '/en/projects',
-    '/pl',
+    '/pl/',
     '/pl/about',
     '/pl/projects'
   ];
