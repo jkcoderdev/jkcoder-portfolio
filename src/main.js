@@ -16,6 +16,16 @@ const supportedLocales = Object.keys(content);
 export const createApp = ViteSSG(App, {
   routes,
   formatting: 'directory',
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve) => {
+      const wrapper = document.querySelector('.wrapper');
+      if (wrapper) {
+        wrapper.scrollTo({ top: 0, behavior: 'instant' })
+      }
+
+      resolve(savedPosition || { left: 0, top: 0 });
+    });
+  }
 }, ({app, router, initialState}) => {
   const pinia = createPinia();
 
