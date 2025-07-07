@@ -2,9 +2,25 @@
   RewriteEngine On
   RewriteBase /
 
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^([^\.]+)$ $1.html [NC,L]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [L,R]
 
-  # Fallback to index.html (if needed for unknown paths)
-  RewriteRule ^.*$ /index.html [L]
+  # Serve existing files and directories directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Handle SEO/public files explicitly (do not rewrite)
+  RewriteCond %{REQUEST_URI} ^/(sitemap\.xml|robots\.txt|favicon\.ico)$
+  RewriteRule ^ - [L]
+
+  # Rewrite requests to use index.html in directories (pretty URLs)
+  RewriteRule ^(.+)/$ $1/index.html [L]
+
+  # Fallback: try adding .html to the end if it's missing (e.g., /en/about → /en/about.html)
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Final fallback (optional): go to root index.html if nothing matches
+  RewriteRule ^ index.html [L]
 </IfModule>
