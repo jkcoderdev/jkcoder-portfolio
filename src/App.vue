@@ -388,4 +388,3 @@ const closeMobileMenu = () => {
   }
 }
 </style>
-</template>
