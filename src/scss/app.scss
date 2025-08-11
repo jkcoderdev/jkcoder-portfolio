@@ -29,16 +29,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $color-primary;
+  background-color: $color-primary-dark;
   border-radius: 1rem;
-  border: $scrollbar-width * 0.25 solid $color-background;
+  border: $scrollbar-width * (1 / 3) solid $color-background;
 
   &:hover {
-    background-color: $color-primary-light;
+    background-color: $color-primary;
   }
 
   &:active {
-    background-color: $color-primary-dark;
+    background-color: $color-primary-light;
   }
 }
 

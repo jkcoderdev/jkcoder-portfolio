@@ -74,7 +74,7 @@ useHead({
     </div>
 
     <a href="#contact">
-        <button class="more-button">{{ $t('general.contactButton') }}</button>
+        <button class="primary-button">{{ $t('general.contactButton') }}</button>
     </a>
   </section>
 
@@ -141,7 +141,7 @@ useHead({
     </div>
 
     <RouterLink :to="`/${locale}/projects`">
-        <button class="more-button">{{ $t('general.sections.projects.moreButton') }}</button>
+        <button class="primary-button">{{ $t('general.sections.projects.moreButton') }}</button>
     </RouterLink>
   </section>
 
@@ -173,6 +173,29 @@ useHead({
     width: 240px;
     height: 1px;
     background-color: $color-border;
+}
+
+.primary-button {
+    padding: 0 1rem;
+    height: 2.25rem;
+
+    background-color: $color-primary;
+    color: $color-background;
+    border: none;
+    box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem -0.125rem $color-primary-light;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 0.5rem;
+    transition: 0.2s;
+    
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        color: $color-primary;
+        box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem 0 $color-primary-light;
+    }
 }
 
 .start-section {
@@ -229,29 +252,6 @@ useHead({
             &:hover {
                 opacity: 1;
             }
-        }
-    }
-
-    .more-button {
-        padding: 0 1rem;
-        height: 2.25rem;
-
-        background-color: $color-primary;
-        color: $color-background;
-        border: none;
-        box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem 0 $color-primary-light;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        border-radius: 0.5rem;
-        transition: 0.2s;
-        
-        cursor: pointer;
-
-        &:hover {
-            background-color: transparent;
-            color: $color-primary;
-            box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem -0.125rem $color-primary-light;
         }
     }
 }
@@ -402,28 +402,8 @@ useHead({
         }
     }
 
-    .more-button {
+    .primary-button {
         margin-top: 2rem;
-        padding: 0 1rem;
-        height: 2.25rem;
-
-        background-color: $color-primary;
-        color: $color-background;
-        border: none;
-        box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem 0 $color-primary-light;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        border-radius: 0.5rem;
-        transition: 0.2s;
-        
-        cursor: pointer;
-
-        &:hover {
-            background-color: transparent;
-            color: $color-primary;
-            box-shadow: inset 0 0 0 2px $color-primary, 0 0 0.5rem -0.125rem $color-primary-light;
-        }
     }
 }
 
